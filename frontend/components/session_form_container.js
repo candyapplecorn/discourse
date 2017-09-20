@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
 import { withRouter } from 'react-router';
-import { signup, login } from '../actions/session_actions';
+import { signup, login, clear_errors } from '../actions/session_actions';
 
 const getFormType = ({ location: { pathname } }) =>
   /login/.test(pathname) ? 'login' : 'signup'
@@ -25,7 +25,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  submitForm: createAction(getFormAction(ownProps), dispatch)
+  submitForm: createAction(getFormAction(ownProps), dispatch),
+  clearErrors: () => dispatch(clear_errors())
 });
 
 const SessionFormContainer = withRouter(connect(

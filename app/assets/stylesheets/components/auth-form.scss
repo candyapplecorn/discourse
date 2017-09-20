@@ -1,0 +1,72 @@
+@import "../variables";
+
+.auth-form * {
+  display: block;
+  width: 100%;
+}
+
+.auth-form {
+  width: 400px;
+  margin: 0 auto;
+  padding: 0em;
+  margin-top: 2em;
+
+
+  main {
+    box-shadow: 5px 5px 5px lighten($black, 70%);
+    border: 1px solid $black;
+    box-sizing: border-box;
+    display: inline-block;
+
+    ul {
+      margin-top: 1em;
+      li {
+        color: red;
+        font-weight: bold;
+      }
+    }
+
+    label:nth-child(1), label:nth-child(2) {
+      margin-top: 1em;
+      border-bottom: 1px solid lighten($black, 30%);
+    }
+
+    padding: 0.5em;
+
+    h1, h4, a {
+      text-align: center;
+      font-size: 24px;
+    }
+    form {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    a, input, h4 {
+      width: 100%;
+      font-size: 20px;
+      margin-top: 0.5em;
+      border: none;
+    }
+
+    input[type="submit"] {
+      background: white;
+      border: 1px solid $black;
+      border-radius: 5px;
+      padding: 0.5em;
+      transition: 0.5s;
+    }
+    input[type="submit"]:hover {
+      cursor: pointer;
+      background: lighten($black, 95%);
+      transition: 0.5s;
+    }
+
+    input[type='text']:focus, input[type='password']:focus  {
+      outline: none;
+      border-bottom: 1px solid $black;
+    }
+  }
+}

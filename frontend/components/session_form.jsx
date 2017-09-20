@@ -25,46 +25,53 @@ class SessionForm extends React.Component {
     };
 
     return (
-      <main className="auth-form">
-        <h2>{header}</h2>
+      <section className="auth-form">
+        <main>
+          <h1>{header}</h1>
 
-        <ul className="auth-errors">
-          {
-            errors.map((err, i) => <li key={i}>{err}</li>)
-          }
-        </ul>
+          <ul className="auth-errors">
+            {
+              errors.map((err, i) =>
+                <li key={i}>{err}</li>)
+            }
+          </ul>
 
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <label>
-            Username
-            <input type="text" onChange={this.actionFactory('username')}
-                   value={username} />
-          </label>
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <label>
+              Username
+              <input type="text" onChange={this.actionFactory('username')}
+                     value={username} />
+            </label>
 
-          <label>
-            Password
-            <input type="password" onChange={this.actionFactory('password')}
-                   value={password} />
-          </label>
+            <label>
+              Password
+              <input type="password" onChange={this.actionFactory('password')}
+                     value={password} />
+            </label>
 
-          <input type="submit" value={btnContent[header]} />
-        </form>
+            <label>
+            <input type="submit" value={btnContent[header]} />
+            </label>
 
-        {this.linkToOther()}
-      </main>
+            {this.linkToOther()}
+          </form>
+        </main>
+      </section>
     );
   }
 
   linkToOther(){
+    const { clearErrors } = this.props;
+
     return /login/.test(this.props.location.pathname) ? (
       <div>
         <h4>Don't have an account?</h4>
-        <Link to="/signup">Sign Up</Link>
+        <Link onClick={clearErrors} to="/signup">Sign Up</Link>
       </div>
     ) : (
       <div>
         <h4>Already have an account?</h4>
-        <Link to="/login">Log In</Link>
+        <Link onClick={clearErrors} to="/login">Log In</Link>
       </div>
     )
   }

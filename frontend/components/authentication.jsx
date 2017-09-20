@@ -10,6 +10,7 @@ const Authentication = ({ currentUser, logout }) => (
   ) : (
   <div id="authentication">
     <Link to="/signup">Sign Up</Link>
+    <span> / </span>
     <Link to="/login">Log In</Link>
   </div>
   )
