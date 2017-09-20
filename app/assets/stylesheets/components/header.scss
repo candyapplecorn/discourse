@@ -1,0 +1,25 @@
+@import "../_variables.scss";
+
+header {
+  padding: 1em 0em 2em 0em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  a {
+    text-decoration: none;
+  }
+  a:not(.home-link), a:not(.home-link):visited {
+    font-family: 'Muli', sans-serif;
+    color: $seagreen;
+  }
+
+  .home-link, .home-link:visited {
+    font-family: 'Pacifico', cursive;
+    color: $black;
+    font-size: 36px;
+  }
+  border-bottom: 1px solid $black;
+}

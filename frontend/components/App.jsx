@@ -7,7 +7,8 @@ import SessionFormContainer from './session_form_container';
 const App = () => (
   <div>
     <header>
-      <Link to="/"><h1>Discourse Blogging</h1></Link>
+      <Link to="stories/new">Write Something</Link>
+      <h1><Link to="/" className="home-link">Discourse</Link></h1>
       <AuthenticationContainer />
     </header>
 
