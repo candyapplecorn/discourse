@@ -5,7 +5,7 @@ const Authentication = ({ currentUser, logout }) => (
   currentUser ? (
   <div id="authentication">
     <p>Hi, {currentUser.username}</p>
-    <button onClick={logout} value="Log Out" />
+    <button onClick={logout}>Log Out</button>
   </div>
   ) : (
   <div id="authentication">
