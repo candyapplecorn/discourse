@@ -1,18 +1,21 @@
 class Api::SessionsController < ApplicationController
   def create
-    @user = User.find_by(user_params)
+    @user = User.find_by_credentials(user_params)
     if @user
       login!(@user)
-      render 'user#show'
+      render 'api/users/show'
     else
       render json: @user.errors.full_messages
     end
   end
 
   def destroy
-    @user = User.find(params[:id])
-    logout!(@user)
-    render 'user#show'
+    if (!logged_in?)
+      render json: ["A user must be logged in to log out"], status: 404
+    else
+      logout!(current_user)
+      render json: {}, status: 200
+    end
   end
 
   private
