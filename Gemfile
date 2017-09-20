@@ -54,6 +54,13 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Guide to setting up Guard for hot css reloading at:
+  # https://shift.infinite.red/how-to-set-up-sass-live-reloading-in-rails-using-style-injection-366f979564bc
+  gem 'guard', require: false
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+  gem 'rb-fsevent', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
