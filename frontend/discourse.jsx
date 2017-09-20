@@ -9,12 +9,20 @@ import * as SessionActions from './actions/session_actions';
 // END DEBUG
 
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
+  const store = getConfiguredStore(window);
   const panda = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, panda);
 
   debugging(store);
 });
+
+function getConfiguredStore({ currentUser }){
+  if (!currentUser)
+    return configureStore()
+
+  let preloadedState = { session: { currentUser }}
+  return configureStore(preloadedState)
+}
 
 function debugging(store){
     window.postSignup = SessionAPIUtil.postSignup
