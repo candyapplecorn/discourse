@@ -33,5 +33,8 @@
     "url": "https://github.com/candyapplecorn/discourse"
   },
   "author": "Joseph Burger",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.2"
+  }
 }
