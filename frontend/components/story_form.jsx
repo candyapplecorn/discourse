@@ -39,7 +39,8 @@ class StoryForm extends React.Component {
           "Create Story" : "Update Story";
 
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
+      <form onSubmit={this.handleSubmit.bind(this)}
+            className="story-form">
       <input type="text" value={this.state.title}
              placeholder="what's on your mind?"
              onChange={this.changeFactory('title')} />

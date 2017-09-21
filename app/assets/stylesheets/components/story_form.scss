@@ -1,0 +1,9 @@
+@import '../variables';
+
+.story-form {
+  input, textarea {
+    display: block;
+    outline: none;
+    // border: none;
+  }
+}
