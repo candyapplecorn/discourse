@@ -18,8 +18,8 @@ class Story < ApplicationRecord
     through: :comments,
     source: :author
 
-  belongs_to: :author,
-  primary_key: :id,
-  foreign_key: :author_id,
-  class_name: 'user'
+  belongs_to :author,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: 'user'
 end
