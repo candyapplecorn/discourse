@@ -14,7 +14,7 @@ class Api::StoriesController < ApplicationController
     if @story.update_attributes(story_params)
       render :show
     else
-      render json: @story.errors.full_messages
+      render json: @story.errors.full_messages, status: 422
     end
   end
 
@@ -24,7 +24,7 @@ class Api::StoriesController < ApplicationController
     if @story.save
       render :show
     else
-      render json: @story.errors.full_messages
+      render json: @story.errors.full_messages, status: 422
     end
   end
 
@@ -37,6 +37,6 @@ class Api::StoriesController < ApplicationController
 
   private
   def story_params
-    require(:story).permit(:title, :body)
+    params.require(:story).permit(:title, :body)
   end
 end

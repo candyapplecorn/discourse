@@ -1,4 +1,4 @@
-json.extract! story, :created_at, :title, :body
+json.extract! story, :created_at, :title, :body, :id
 
 json.set! :likes, story.likes.count
 json.set! :num_comments, story.comments.count

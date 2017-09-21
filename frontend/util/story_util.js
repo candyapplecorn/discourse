@@ -1,4 +1,4 @@
-export const post_story = story => dispatch => $.ajax({
+export const post_story = story => $.ajax({
   url: 'api/stories',
   method: 'post',
   data: { story }

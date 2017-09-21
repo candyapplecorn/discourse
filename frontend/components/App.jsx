@@ -5,6 +5,7 @@ import AuthenticationContainer from './authentication_container';
 import SessionFormContainer from './session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
+// Todo: Make header a component
 const App = () => (
   <div>
     <header>
@@ -16,7 +17,7 @@ const App = () => (
     <AuthRoute path="/login"  component={SessionFormContainer} />
     <AuthRoute path="/signup" component={SessionFormContainer} />
     <ProtectedRoute path="/stories/new" component={() => (<h1>To Be Made</h1>)} />
-    <ProtectedRoute path="/stories/edit" component={() => (<h1>To Be Made</h1>)} />
+    <ProtectedRoute path="/stories/:id/edit" component={() => (<h1>To Be Made</h1>)} />
   </div>
 );
 
