@@ -39,15 +39,13 @@ class SessionForm extends React.Component {
 
           <form onSubmit={this.handleSubmit.bind(this)}>
             <label>
-              Username
               <input type="text" onChange={this.actionFactory('username')}
-                     value={username} />
+                     value={username} placeholder="Username" />
             </label>
 
             <label>
-              Password
               <input type="password" onChange={this.actionFactory('password')}
-                     value={password} />
+                     value={password} placeholder="Password"/>
             </label>
 
             <label>
