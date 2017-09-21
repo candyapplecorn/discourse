@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import { logout } from '../actions/story_actions';
 import { withRouter } from 'react-router'
-import { createStory, updateStory, removeStory } from '../actions/story_actions';
+import {
+  getStory, createStory, updateStory, removeStory
+} from '../actions/story_actions';
 import StoryForm from './story_form';
 
 const getFormType = ({ location: { pathname } }) =>
@@ -29,6 +31,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   removeStory: () => dispatch(removeStory(ownProps.match.params.id))
 , submitStory: createAction(getFormAction(ownProps), dispatch)
+, getStory: () => dispatch(getStory(ownProps.match.params.id))
 })
 
 export default withRouter(connect(

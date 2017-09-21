@@ -1,16 +1,31 @@
 import React from 'react';
+import { merge } from 'lodash'
 
 class StoryForm extends React.Component {
   constructor(props){
     super(props)
     // this,state??
-    this.state = this.props.story
+    this.state = merge({}, this.props.story, { loading: false })
+  }
+  componentDidMount(){
+    if (this.props.match.params.id){
+      this.props.getStory()
+      this.setState({loading: true})
+    }
+  }
+  componentWillReceiveProps(newProps){
+    this.setState({
+      title: newProps.story.title
+    , body: newProps.story.body
+    , id: newProps.story.id
+    })
+    this.setState({loading: false})
   }
   handleSubmit(event){
     event.preventDefault()
     // todo: change this!
     this.props.submitStory(this.state).then(
-      formStory => { this.props.history.push(`api/stories/${formStory.id}`) }
+      formStory => { debugger; this.props.history.push(`/stories/${formStory.id}`) }
       // DOESNT WORK
     );
 
@@ -19,6 +34,7 @@ class StoryForm extends React.Component {
     return e => this.setState({[field]: e.target.value})
   }
   render(){
+    if (this.state.loading) return (<h1>Loading...</h1>);
     const btnContents = this.props.formType == 'new' ?
           "Create Story" : "Update Story";
 

@@ -58,6 +58,6 @@ export const createStory = formStory => dispatch =>
 
 export const updateStory = formStory => dispatch =>
   patch_story(formStory).then(
-    story => dispatch(receive_story(story))
+    story => dispatch(receive_story(story)).story // BRAIN HURTS MORE
   , errors => dispatch(receive_story_errors(errors.responseJSON))
 );

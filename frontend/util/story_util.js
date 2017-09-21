@@ -5,7 +5,7 @@ export const post_story = story => $.ajax({
 });
 
 export const patch_story = story => $.ajax({
-  url: `api/stories/${formStory.id}`,
+  url: `api/stories/${story.id}`,
   method: 'patch',
   data: { story }
 });
