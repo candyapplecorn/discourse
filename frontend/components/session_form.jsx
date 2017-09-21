@@ -7,13 +7,6 @@ class SessionForm extends React.Component {
   constructor(props){
     super(props)
     this.state = merge({}, props.user, { showModal: true })
-
-    // Modal stuff
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
   actionFactory(fieldname){
     return event => this.setState({ [fieldname]: event.target.value})
@@ -33,22 +26,6 @@ class SessionForm extends React.Component {
     };
 
     return (
-        <ReactModal
-          isOpen={this.state.showModal}
-          contentLabel="onRequestClose Example"
-          onRequestClose={this.handleCloseModal}
-          style={{
-            overlay: {
-              background: 'rgba(148,148,148, 0.5)'
-            },
-            content: {
-              width: "600px",
-              margin: "auto",
-              "alignItems": "center",
-              "marginTop": "3em"
-            }
-          }}
-        >
       <section className="auth-form">
         <main>
           <h1>{header}</h1>
@@ -76,14 +53,13 @@ class SessionForm extends React.Component {
             <label>
             <input type="submit" value={btnContent[header]} />
             </label>
-            
+
             {this.linkToOther()}
 
             {this.demoUserLink()}
           </form>
         </main>
       </section>
-        </ReactModal>
     );
   }
   demoUserLink(){
@@ -128,30 +104,6 @@ class SessionForm extends React.Component {
         <Link onClick={clearErrors} to="/login">Log In</Link>
       </div>
     )
-  }
-
-  // More modal stuff
-  openModal() {
-    this.setState({modalIsOpen: true});
-  }
-
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00';
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
-  }
-
-  handleOpenModal () {
-    this.setState({ showModal: true });
-  }
-
-  handleCloseModal () {
-    this.setState({ showModal: false });
-
-    this.props.history.push("/")
   }
 }
 

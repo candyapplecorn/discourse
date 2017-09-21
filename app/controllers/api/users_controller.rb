@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   def create
     @user = User.create(user_params)
-    @user.img_url = "http://tinygraphs.com/labs/isogrids/hexa/#{@user.username}?theme=seascape&numcolors=4&size=220&fmt=svg"
+    @user.img_url = "http://tinygraphs.com/labs/isogrids/hexa/#{@user.username}?theme=seascape&numcolors=4&size=40&fmt=svg"
     if @user.save
       login!(@user)
       render :show
