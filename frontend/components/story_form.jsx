@@ -1,11 +1,14 @@
 import React from 'react';
 import { merge } from 'lodash'
+import ReactQuill from 'react-quill';
 
 class StoryForm extends React.Component {
   constructor(props){
     super(props)
     // this,state??
-    this.state = merge({}, this.props.story, { loading: false })
+    this.state = merge({}, this.props.story
+                , { loading: false }
+              );
   }
   componentDidMount(){
     if (this.props.match.params.id){
@@ -30,6 +33,10 @@ class StoryForm extends React.Component {
     );
 
   }
+  // Needed for Quill
+  handleChange(value){
+    this.setState({ body: value })
+  }
   changeFactory(field){
     return e => this.setState({[field]: e.target.value})
   }
@@ -45,8 +52,8 @@ class StoryForm extends React.Component {
              placeholder="what's on your mind?"
              onChange={this.changeFactory('title')} />
 
-      <textarea value={this.state.body} placeholder="tell the world"
-                onChange={this.changeFactory('body')} />
+      <ReactQuill value={this.state.body}
+                  onChange={this.handleChange.bind(this)} />
 
       <input type="submit" value={btnContents} />
 

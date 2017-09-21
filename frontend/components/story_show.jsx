@@ -26,7 +26,7 @@ class StoryShow extends React.Component {
       <main className="story-show">
 
         <h1>{title}</h1>
-        <section>{body}</section>
+        <section>{ body }</section>
       </main>
     );
   }
