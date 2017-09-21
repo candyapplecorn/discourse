@@ -14,7 +14,9 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "webpack": "^3.6.0"
+    "webpack": "^3.6.0",
+    "react-router": "^4.2.0",
+    "redux-devtools-extension": "^2.13.2"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
@@ -39,9 +41,5 @@
     "url": "https://github.com/candyapplecorn/discourse"
   },
   "author": "Joseph Burger",
-  "license": "ISC",
-  "devDependencies": {
-    "react-router": "^4.2.0",
-    "redux-devtools-extension": "^2.13.2"
-  }
+  "license": "ISC"
 }
