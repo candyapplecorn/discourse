@@ -52,7 +52,7 @@
       border: none;
     }
 
-    button, input[type="submit"] {
+    button, input[type="submit"], a {
       background: white;
       border: 1px solid $black;
       border-radius: 5px;
@@ -61,7 +61,11 @@
       color: $seagreen;
     }
 
-    input[type="submit"]:hover {
+    a {
+      width: auto;
+    }
+
+    input[type="submit"]:hover, a:hover {
       cursor: pointer;
       background: lighten($black, 95%);
       transition: 0.5s;
