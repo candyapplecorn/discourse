@@ -7,5 +7,5 @@ class Comment < ApplicationRecord
   belongs_to :author,
     primary_key: :id,
     foreign_key: :user_id,
-    className: 'user'
+    class_name: 'user'
 end
