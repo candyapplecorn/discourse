@@ -6,7 +6,7 @@ import ReactModal from 'react-modal';
 class SessionForm extends React.Component {
   constructor(props){
     super(props)
-    this.state = merge({}, props.user, { showModal: true })
+    this.state = merge({}, props.user, { ui: true })
   }
   actionFactory(fieldname){
     return event => this.setState({ [fieldname]: event.target.value})
@@ -73,20 +73,24 @@ class SessionForm extends React.Component {
 
   demoUserLogin(event){
     event.preventDefault()
-    const username = "Anonymous".split('')
-    const password = "a password".split('')
+    const username = "Anonymous"
+    const password = "a password"
 
-    username.forEach((l, i) => window.setTimeout(() => {
+    if (!this.state.ui) return;
+
+    username.split('').forEach((l, i) => window.setTimeout(() => {
       this.setState({ username: this.state.username + l })
     }, 70 * (i + 1)))
 
-    password.forEach((l, i) => window.setTimeout(() => {
+    password.split('').forEach((l, i) => window.setTimeout(() => {
       this.setState({ password: this.state.password + l })
     }, 70 * (i + 1 + username.length)))
 
-    window.setTimeout(() => this.props.login(this.state).then(
+    window.setTimeout(() => this.props.login({username,password}).then(
       () => this.props.history.push('/')
     ), (username.length + password.length + 20) * 50)
+
+    this.setState({ ui: false });
   }
 
   linkToOther(){
