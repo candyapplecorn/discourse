@@ -52,7 +52,7 @@ export const removeStory = id => dispatch =>
 
 export const createStory = formStory => dispatch =>
   post_story(formStory).then(
-    story => dispatch(receive_story(story))
+    story => dispatch(receive_story(story)).story // BRAIN HURTS
   , errors => dispatch(receive_story_errors(errors.responseJSON))
 );
 

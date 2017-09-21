@@ -22,11 +22,13 @@ const mapStateToProps = (state, ownProps) => ({
   story: getFormType(ownProps) == 'new' ?
           NEW_STORY :
           state.stories[ownProps.match.params.id]
-, state.errors.stories.errors
+, formType: getFormType(ownProps)
+, errors: state.errors.stories.errors
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-
+  removeStory: () => dispatch(removeStory(ownProps.match.params.id))
+, submitStory: createAction(getFormAction(ownProps), dispatch)
 })
 
 export default withRouter(connect(
