@@ -26,7 +26,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   submitForm: createAction(getFormAction(ownProps), dispatch),
-  clearErrors: () => dispatch(clear_errors())
+  clearErrors: () => dispatch(clear_errors()),
+  login: (formUser) => dispatch(login(formUser))
 });
 
 const SessionFormContainer = withRouter(connect(

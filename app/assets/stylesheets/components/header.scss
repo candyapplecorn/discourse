@@ -17,4 +17,14 @@ header {
   border-bottom: 1px solid $black;
 
   span { color: $seagreen }
+
+  button {
+    background: white;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+  }
+  #authentication {
+    display: flex;
+  }
 }
