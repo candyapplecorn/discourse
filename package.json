@@ -41,6 +41,7 @@
   "author": "Joseph Burger",
   "license": "ISC",
   "devDependencies": {
+    "react-router": "^4.2.0",
     "redux-devtools-extension": "^2.13.2"
   }
 }
