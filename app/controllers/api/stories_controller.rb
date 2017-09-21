@@ -11,7 +11,7 @@ class Api::StoriesController < ApplicationController
   def update
     @story = Story.find(params[:id])
     return ["Story not found"], status: 404 unless @story
-    if @story.update_attributes
+    if @story.update_attributes(story_params)
       render :show
     else
       render json: @story.errors.full_messages
@@ -19,7 +19,7 @@ class Api::StoriesController < ApplicationController
   end
 
   def create
-    @story = Story.new(story_params])
+    @story = Story.new(story_params)
     @story.author_id = current_user.id
     if @story.save
       render :show

@@ -6,6 +6,8 @@ import Root from './components/root';
 // DEBUG
 import * as SessionAPIUtil from './util/session_api_util';
 import * as SessionActions from './actions/session_actions';
+import * as StoryActions from './actions/story_actions';
+import * as StoryAPIUtil from './util/story_util';
 // END DEBUG
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,4 +33,6 @@ function debugging(store){
     window.getState = store.getState
     window.dispatch = store.dispatch
     window.SessionsActions = SessionActions;
+    window.StoryActions = StoryActions;
+    window.StoryAPIUtil = StoryAPIUtil
 }
