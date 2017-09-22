@@ -12,10 +12,13 @@ export const CLEAR_STORY_ERRORS = "CLEAR_STORY_ERRORS"
 const clear_story_errors = () => ({
   type: CLEAR_STORY_ERRORS
 })
-const receive_story_errors = errors => ({
-  type: RECEIVE_STORY_ERRORS,
-  errors
-})
+const receive_story_errors = errors => {
+  // Returning undefined!
+  return ({
+    type: RECEIVE_STORY_ERRORS,
+    errors
+  })
+}
 const receive_story = story => ({
   type: RECEIVE_STORY,
   story
@@ -47,7 +50,7 @@ export const getStories = () => dispatch =>
 export const removeStory = id => dispatch =>
   delete_story(id).then(
     story => dispatch(remove_story(story))
-  , errors => dispatch(receive_story_errors(errors.responseJSON))
+  , errors => dispatch(receive_story_errors(errors))
 );
 
 export const createStory = formStory => dispatch =>

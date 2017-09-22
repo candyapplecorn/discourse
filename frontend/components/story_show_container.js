@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { withRouter } from  'react-router'
-import { getStory } from '../actions/story_actions';
+import { getStory, removeStory } from '../actions/story_actions';
 import StoryShow from './story_show'
 
 const EMPTY_STORY = {
@@ -18,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  getStory: () => dispatch(getStory(ownProps.match.params.id))
+  getStory: () => dispatch(getStory(ownProps.match.params.id)),
+  removeStory: () => dispatch(removeStory(ownProps.match.params.id))
 });
 
 export default withRouter(connect(

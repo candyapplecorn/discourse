@@ -11,7 +11,7 @@ export const patch_story = story => $.ajax({
 });
 
 export const delete_story = id => $.ajax({
-  url: `api/stories${id}`,
+  url: `api/stories/${id}`,
   method: 'delete'
 });
 

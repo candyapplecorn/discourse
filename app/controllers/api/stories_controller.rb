@@ -5,12 +5,12 @@ class Api::StoriesController < ApplicationController
 
   def show
     @story = Story.includes(:author, :likes, comments: [:author]).find(params[:id])
-    return ["Story not found"], status: 404 unless @story
+    render json: ["Story not found"], status: 404 unless @story
   end
 
   def update
     @story = Story.find(params[:id])
-    return ["Story not found"], status: 404 unless @story
+    render json: ["Story not found"], status: 404 unless @story
     if @story.update_attributes(story_params)
       render :show
     else
@@ -30,7 +30,7 @@ class Api::StoriesController < ApplicationController
 
   def destroy
     @story = Story.find(params[:id])
-    return ["Story not found"], status: 404 unless @story
+    render(json: ["Story not found"], status: 404) unless @story
     @story.destroy
     render :show
   end
