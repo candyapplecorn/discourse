@@ -28,9 +28,16 @@ class StoryShow extends React.Component {
         {this.buttonList()}
         {this.details()}
         <h1 className="story-title">{title}</h1>
-        <section className="story-body">{ ReactHtmlParser(body) }</section>
+        <section className="story-body">{
+          ReactHtmlParser(this.transformImages(body)) }
+          </section>
       </main>
     );
+  }
+
+  transformImages(html){
+    return html.replace(/(http[^\s]+?(png|jpg|svg|jpeg))/g,
+    "<img src='$1'></img>")
   }
 
   getTimeToRead(body){
