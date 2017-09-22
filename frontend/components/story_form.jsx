@@ -48,20 +48,22 @@ class StoryForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit.bind(this)}
             className="story-form">
-      <input type="text" value={this.state.title}
-             placeholder="what's on your mind?" autoFocus
-             tabIndex={1}
-             onChange={this.changeFactory('title')} />
 
-      <ReactQuill tabIndex={2} value={this.state.body}
-                  onChange={this.handleChange.bind(this)}
+        <input id="title" type="text" value={this.state.title}
+               placeholder="what's on your mind?" autoFocus
+               tabIndex={1}
+               onChange={this.changeFactory('title')} />
 
-                  style={{
-                    "fontSize": "24px"
-                  }}
-      />
+        <ReactQuill tabIndex={2} value={this.state.body}
+                    onChange={this.handleChange.bind(this)}/>
 
-      <input type="submit" value={btnContents} />
+        <p>
+          <input type="submit" value={btnContents} />
+          <p>
+            Add images to your story by pasting their URL's into the editor
+          </p>
+        </p>
+
 
       </form>
     );

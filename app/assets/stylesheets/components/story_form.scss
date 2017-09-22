@@ -1,7 +1,7 @@
 @import '../variables';
 
 .story-form {
-  input:nth-child(1) {
+  #title {
     display: block;
     outline: none;
     font-family: inherit;
@@ -14,7 +14,19 @@
     font-size: 1.5em;
   }
 
-  input:nth-child(3) {
+  p {
+    display: flex;
+    justify-content: space-between;
+    font-style: italic;
+    font-size: 16px;
+    align-items: center;
+  }
+
+  p p {
+    margin-left: 2em;
+  }
+
+  p input {
     background: none;
     outline: none;
     border: none;
@@ -28,7 +40,7 @@
     padding: 0.25em 1em;
   }
 
-  input:nth-child(3):hover {
+  p input:hover {
     cursor: pointer;
     background: lighten($black, 95%);
     transition: 0.5s;
