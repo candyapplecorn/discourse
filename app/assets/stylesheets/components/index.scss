@@ -1,0 +1,20 @@
+.index {
+}
+
+.story-index {
+  -webkit-column-count: 1; /* Chrome, Safari, Opera */
+  -moz-column-count: 1; /* Firefox */
+  // column-count: 1;
+}
+
+@media screen and (min-width: 1080px) {
+  .story-index{
+    // column-count: 2;
+  }
+}
+
+@media screen and (min-width: 1620px) {
+  .story-index{
+    // column-count: 3;
+  }
+}

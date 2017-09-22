@@ -1,6 +1,7 @@
 import React from 'react'
 import { merge } from 'lodash'
 import ReactHtmlParser from 'react-html-parser';
+import StoryDetail from './story_detail';
 
 class StoryShow extends React.Component {
   constructor(props){
@@ -26,7 +27,9 @@ class StoryShow extends React.Component {
     return (
       <main className="story-show">
         {this.buttonList()}
-        {this.details()}
+        
+        <StoryDetail story={story} author={author} body={body} title={title} />
+
         <h1 className="story-title">{title}</h1>
         <section className="story-body">{
           ReactHtmlParser(this.transformImages(body)) }
@@ -38,42 +41,6 @@ class StoryShow extends React.Component {
   transformImages(html){
     return html.replace(/(http[^\s]+?(png|jpg|svg|jpeg))/g,
     "<img src='$1'></img>")
-  }
-
-  getTimeToRead(body){
-    const averageWPM = 200; // Thanks Google!
-    const averageLettersPerWord = 4.5; // Thanks Google!
-    let averageWPS = averageWPM / 60; // This is too slow
-    averageWPS /= 2; // Will adjust as I see fit
-    const secondsPerLetter = averageWPS / averageLettersPerWord;
-    const withoutTags = body.replace(/<.*?>/g, "");
-    const timeToRead = Math.floor(withoutTags.length * secondsPerLetter / 60);
-
-    return timeToRead < 1 ? "< one min read" : `${timeToRead} min read`;
-  }
-  details(){
-    const { author: { username, img_url: imgUrl },
-            body, created_at: createdAt } = this.props.story;
-
-
-    return (
-      <div className="story-show-detail">
-        <img src={imgUrl} />
-        <div>
-          <div>
-            <p>{username}</p>
-            <button>Follow</button>
-          </div>
-          <div>
-            <p>
-            {(new Date(createdAt)).toDateString().replace(/.*? /, "")}
-            {" · "}
-            {this.getTimeToRead(body)}
-            </p>
-          </div>
-        </div>
-      </div>
-    );
   }
 
   buttonList(){

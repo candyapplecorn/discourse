@@ -6,6 +6,7 @@ import AuthenticationContainer from './authentication_container';
 import SessionFormContainer from './session_form_container';
 import StoryFormContanier from './story_form_container';
 import StoryShowContainer from './story_show_container';
+import IndexContainer from './index_container';
 
 // Todo: Make header a component
 const App = () => (
@@ -17,6 +18,7 @@ const App = () => (
     </header>
 
     <Switch>
+      <Route exact path="/" component={IndexContainer} />
       <AuthRoute path="/login"  component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <ProtectedRoute exact path="/stories/new" component={StoryFormContanier} />
