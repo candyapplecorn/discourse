@@ -1,0 +1,44 @@
+.story-show {
+  .story-title {
+    font-size: 42px;
+    font-weight: 700;
+    padding: 3em 1em 2em 1em;
+  }
+
+  .story-body {
+    h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 0.35em;
+    }
+
+    h2 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 0.25em
+    }
+
+    h3 {
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 0.15em;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    li {
+      margin-left: 2em;
+    }
+
+    ol {
+      list-style: decimal;
+      margin-bottom: 1em;
+    }
+  }
+}

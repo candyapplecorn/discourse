@@ -28,7 +28,7 @@ class StoryForm extends React.Component {
     event.preventDefault()
     // todo: change this!
     this.props.submitStory(this.state).then(
-      formStory => { debugger; this.props.history.push(`/stories/${formStory.id}`) }
+      formStory => { this.props.history.push(`/stories/${formStory.id}`) }
       // DOESNT WORK
     );
 

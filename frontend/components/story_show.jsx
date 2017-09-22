@@ -1,5 +1,6 @@
 import React from 'react'
 import { merge } from 'lodash'
+import ReactHtmlParser from 'react-html-parser';
 
 class StoryShow extends React.Component {
   constructor(props){
@@ -24,9 +25,8 @@ class StoryShow extends React.Component {
 
     return (
       <main className="story-show">
-
-        <h1>{title}</h1>
-        <section>{ body }</section>
+        <h1 className="story-title">{title}</h1>
+        <section className="story-body">{ ReactHtmlParser(body) }</section>
       </main>
     );
   }
