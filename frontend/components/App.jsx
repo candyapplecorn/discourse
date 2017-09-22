@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, Switch } from 'react-router';
 import { Link } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import AuthenticationContainer from './authentication_container';
@@ -16,11 +16,13 @@ const App = () => (
       <AuthenticationContainer />
     </header>
 
-    <AuthRoute path="/login"  component={SessionFormContainer} />
-    <AuthRoute path="/signup" component={SessionFormContainer} />
-    <ProtectedRoute path="/stories/new" component={StoryFormContanier} />
-    <ProtectedRoute path="/stories/:id/edit" component={StoryFormContanier} />
-    <Route exact path="/stories/:id" component={StoryShowContainer} />
+    <Switch>
+      <AuthRoute path="/login"  component={SessionFormContainer} />
+      <AuthRoute path="/signup" component={SessionFormContainer} />
+      <ProtectedRoute exact path="/stories/new" component={StoryFormContanier} />
+      <ProtectedRoute exact path="/stories/:id/edit" component={StoryFormContanier} />
+      <Route exact path="/stories/:id" component={StoryShowContainer} />
+    </Switch>
   </div>
 );
 

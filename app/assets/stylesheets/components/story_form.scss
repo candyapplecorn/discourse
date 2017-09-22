@@ -1,8 +1,36 @@
 @import '../variables';
 
 .story-form {
-  input, textarea {
+  input:nth-child(1) {
     display: block;
     outline: none;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    border-bottom: 1px dashed $black;
+    width: 100%;
+    padding: 0.5em 0em;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+  }
+
+  input:nth-child(3) {
+    background: none;
+    outline: none;
+    border: none;
+    margin: 1em 0em;
+    color: $seagreen;
+    font-size: 24px;
+    font-family: inherit;
+    transition: 0.5s;
+    border: 1px solid darken($seagreen, 20%);
+    border-radius: 1em;
+    padding: 0.25em 1em;
+  }
+
+  input:nth-child(3):hover {
+    cursor: pointer;
+    background: lighten($black, 95%);
+    transition: 0.5s;
   }
 }

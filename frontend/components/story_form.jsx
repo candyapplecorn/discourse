@@ -49,11 +49,17 @@ class StoryForm extends React.Component {
       <form onSubmit={this.handleSubmit.bind(this)}
             className="story-form">
       <input type="text" value={this.state.title}
-             placeholder="what's on your mind?"
+             placeholder="what's on your mind?" autoFocus
+             tabIndex={1}
              onChange={this.changeFactory('title')} />
 
-      <ReactQuill value={this.state.body}
-                  onChange={this.handleChange.bind(this)} />
+      <ReactQuill tabIndex={2} value={this.state.body}
+                  onChange={this.handleChange.bind(this)}
+
+                  style={{
+                    "fontSize": "24px"
+                  }}
+      />
 
       <input type="submit" value={btnContents} />
 
