@@ -11,14 +11,15 @@ class StoryIndex extends React.Component {
   }
 
   sortByDate(){
-    if (!this.props.stories)
+    if (!this.props.stories || !this.props.stories.length)
       return [];
 
+      // DOESN'T WORK
     return this.props.stories.sort(function(a, b){
-      a = new Date(a.createdAt)
-      b = new Date(b.createdAt)
+      a = new Date(a.created_at)
+      b = new Date(b.created_at)
 
-      return a < b ? -1 : a > b ? 1 : 0;
+      return a > b ? -1 : a < b ? 1 : 0;
     });
   }
 

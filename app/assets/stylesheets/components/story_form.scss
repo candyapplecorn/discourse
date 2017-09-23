@@ -11,14 +11,14 @@
     width: 100%;
     padding: 0.5em 0em;
     margin-bottom: 1em;
-    font-size: 1.5em;
+    font-size: 2em;
   }
 
   p {
     display: flex;
     justify-content: space-between;
-    font-style: italic;
-    font-size: 16px;
+    //font-style: italic;
+    // font-size: 2em;//16px;
     align-items: center;
   }
 
@@ -32,7 +32,7 @@
     border: none;
     margin: 1em 0em;
     color: $seagreen;
-    font-size: 24px;
+    font-size: 1.5em;//24px;
     font-family: inherit;
     transition: 0.5s;
     border: 1px solid darken($seagreen, 20%);
@@ -45,4 +45,8 @@
     background: lighten($black, 95%);
     transition: 0.5s;
   }
+}
+
+.ql-editor {
+  font-size: 2em;
 }

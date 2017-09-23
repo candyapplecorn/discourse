@@ -36,7 +36,7 @@
 
     h1, h4, a {
       text-align: center;
-      font-size: 24px;
+      font-size: 1.5em;//24px;
     }
     form {
       display: flex;
@@ -47,7 +47,7 @@
 
     a, input, h4 {
       width: 100%;
-      font-size: 20px;
+      font-size: 1.25em;//px;
       margin-top: 0.5em;
       border: none;
     }
@@ -78,7 +78,7 @@
 
     button {
       font-family: inherit;
-      font-size: 20px;
+      font-size: 1.25em;//px;
       margin-top: 1em;
       margin-bottom: 0.5em;
       color: $seagreen;
