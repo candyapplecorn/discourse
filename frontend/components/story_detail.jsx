@@ -9,7 +9,7 @@ function getTimeToRead(body){
   const withoutTags = body.replace(/<.*?>/g, "");
   const timeToRead = Math.floor(withoutTags.length * secondsPerLetter / 60);
 
-  return timeToRead < 1 ? "< one min read" : `${timeToRead} min read`;
+  return timeToRead < 1 ? "< 1 min read" : `${timeToRead} min read`;
 }
 
 const details = ({ story })=> {
@@ -25,7 +25,7 @@ const details = ({ story })=> {
           <p>{username}</p>
           <button>Follow</button>
         </div>
-        
+
         <div>
           <p>
             {(new Date(createdAt)).toDateString().replace(/.*? /, "")}

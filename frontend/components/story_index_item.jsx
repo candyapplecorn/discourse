@@ -19,11 +19,11 @@ class StoryIndexItem extends React.Component {
 
     return (
       <Link to={`/stories/${id}`}>
-        <div className="story-index-item">
+        <div className={`story-index-item ${!imgUrl && "noimg"}`}>
           {
             imgUrl && (<img src={imgUrl} />)
           }
-          <div>
+          <div className="story-index-item-details">
             <p>{title}</p>
             <StoryDetail story={this.props.story} />
           </div>

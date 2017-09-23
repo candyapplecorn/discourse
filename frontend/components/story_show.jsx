@@ -27,13 +27,15 @@ class StoryShow extends React.Component {
     return (
       <main className="story-show">
         {this.buttonList()}
-        
+
         <StoryDetail story={story} author={author} body={body} title={title} />
 
         <h1 className="story-title">{title}</h1>
-        <section className="story-body">{
-          ReactHtmlParser(this.transformImages(body)) }
-          </section>
+        <section className="story-body">
+          {
+            ReactHtmlParser(this.transformImages(body))
+          }
+        </section>
       </main>
     );
   }
