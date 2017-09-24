@@ -19,7 +19,7 @@ const details = ({ story })=> {
 
   return (
     <div className="story-show-detail">
-      <img src={imgUrl} />
+      <img className="user-icon" src={imgUrl} />
       <div>
         <div>
           <p>{username}</p>
