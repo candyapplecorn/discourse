@@ -31,6 +31,8 @@ class StoryIndex extends React.Component {
                       img.push(s) : txt.push(s))
     ;
 
+    (img.length % 2 == 1) && txt.forEach(s => (s.odd = true))
+
     return img.concat(txt);
   }
 

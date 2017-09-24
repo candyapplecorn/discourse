@@ -19,7 +19,7 @@ class StoryIndexItem extends React.Component {
 
     return (
       <Link to={`/stories/${id}`}>
-        <div className={`story-index-item ${!imgUrl && "noimg"}`}>
+        <div className={`story-index-item ${!imgUrl && "noimg"} ${story.odd && ' odd '}`}>
           {
             imgUrl && (<img src={imgUrl} />)
           }
