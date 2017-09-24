@@ -1,0 +1,71 @@
+@import '../variables';
+
+.splash {
+  font-family: inherit;
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 2em;
+
+  p {
+    background: rgba(0, 0, 0, .025)
+  }
+
+  a {
+    font-family: 'Pacifico', cursive !important;
+    font-size: 1.5em;
+  }
+
+  margin-top: 1em;
+  height: 30vw;
+  position: relative;
+
+  display: flex;
+  overflow: hidden;
+
+  justify-content: center;
+  align-items: center;
+
+  .splash-img-wrapper {}
+
+  .text-over {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  img {
+    width: 108%;
+    height: 108%;
+  }
+}
+
+@media all and (max-width: 780px){
+    .splash {
+      font-size: 1.25em;
+
+      a {
+        font-size: 1.5em;
+      }
+    }
+}
+
+@media all and (max-width: 600px){
+    .splash {
+      font-size: 1em;
+
+      a {
+        font-size: 1.25em;
+      }
+    }
+}
+
+@media all and (max-width: 500px){
+    .splash {
+      font-size: 0.75em;
+
+      a {
+        font-size: 1em;
+      }
+    }
+}

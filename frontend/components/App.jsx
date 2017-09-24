@@ -19,6 +19,7 @@ const App = () => (
     </header>
 
     <main className="site-content">
+
       <Switch>
         <Route exact path="/" component={IndexContainer} />
         <AuthRoute path="/login"  component={SessionFormContainer} />
