@@ -5,7 +5,6 @@ import CommentFormContainer from './comment_form_container'
 class CommentsIndex extends React.Component {
   constructor(props){
     super(props)
-    // this.state = props.comments
     this.state = { editing: null }
   }
   componentDidMount(){
@@ -20,7 +19,6 @@ class CommentsIndex extends React.Component {
   render(){
     return (
       <div className="comments-index">
-      <h1>Hi from comments index!</h1>
       <ul>
       {
         this.props.comments.map((c, i) =>

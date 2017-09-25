@@ -10,10 +10,10 @@ class CommentIndexItem extends React.Component {
   render(){
     return (
       <div>
-        <h3>Hi from commentindexitem!</h3>
         <p>
           {this.props.comment.body}
         </p>
+        
         <button onClick={this.handleClick.bind(this)}>
           Edit Comment
         </button>

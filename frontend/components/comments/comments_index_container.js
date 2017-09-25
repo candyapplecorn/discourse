@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import {
   getComments, createComment, deleteComment
-} from '../actions/comment_actions';
-import { story_comments } from '../selectors/comments_selector';
+} from '../../actions/comment_actions';
+import { story_comments } from '../../selectors/comments_selector';
 import CommentsIndex from './comments_index';
 
 const mapStateToProps = (state, ownProps) => ({

@@ -26,7 +26,7 @@ class CommentForm extends React.Component {
     const btnContent = (formType == 'new' ? "Create" : "Update") + " Comment";
 
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
+      <form className="comment-form" onSubmit={this.handleSubmit.bind(this)}>
         <textarea onChange={this.changeFactory('body')}
                   value={ body }
         />

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import { createComment, updateComment } from '../actions/comment_actions';
+import { createComment, updateComment } from '../../actions/comment_actions';
 import CommentForm from './comment_form'
 
 const DEFAULT_COMMENT = {
