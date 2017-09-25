@@ -4,6 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // DEBUG
+import * as CommentAPIUtil from './util/comment_api_util';
 import * as SessionAPIUtil from './util/session_api_util';
 import * as SessionActions from './actions/session_actions';
 import * as StoryActions from './actions/story_actions';
@@ -35,4 +36,5 @@ function debugging(store){
     window.SessionsActions = SessionActions;
     window.StoryActions = StoryActions;
     window.StoryAPIUtil = StoryAPIUtil
+    window.CommentAPIUtil = CommentAPIUtil
 }
