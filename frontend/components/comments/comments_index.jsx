@@ -18,7 +18,7 @@ class CommentsIndex extends React.Component {
   }
   render(){
     return (
-      <div className="comments-index">
+      <div className="comments-index" id="comments">
       <ul>
       {
         this.props.comments.map((c, i) =>

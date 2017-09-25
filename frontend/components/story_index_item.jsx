@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import StoryDetail from './story_detail';
+import SocialCounts from './social_counts'
 
 function getFirstImage(html){
   const imgUrl = html.replace(/.*?(http.*?(png|jpg|jpeg)).*/, "$1")
@@ -26,6 +27,7 @@ class StoryIndexItem extends React.Component {
           <div className="story-index-item-details">
             <p>{title}</p>
             <StoryDetail story={this.props.story} social={true} />
+            <SocialCounts num_comments={story.num_comments} num_likes={story.likes} />
           </div>
         </div>
       </Link>

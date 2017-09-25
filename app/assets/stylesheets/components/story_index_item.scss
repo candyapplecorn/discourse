@@ -47,11 +47,20 @@
   width: 100%;
   text-align: center;
 }
+.story-index-item-details > p {
+  margin: 0em 1em;
+  font-size: 1.5em;
+}
 
 .social-counts {
   display: flex;
   justify-content: space-around;
-  margin-top: 1em;
+  align-content: center;
+  margin: 1em;
+
+  i {
+    padding-right: 0.5em;
+  }
 }
 
 .noimg {

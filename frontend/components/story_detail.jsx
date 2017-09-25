@@ -19,6 +19,7 @@ const details = ({ story, social })=> {
 
   return (
     <div className="story-show-detail">
+
       <img className="user-icon" src={imgUrl} />
       <div>
         <div>
@@ -33,25 +34,6 @@ const details = ({ story, social })=> {
             {getTimeToRead(body)}
           </p>
         </div>
-
-        <p className="social-counts">
-        {
-          social && (
-            <div>
-              <i className="fa fa-comment-o" aria-hidden="true"></i>
-              {story.num_comments}
-            </div>
-          )
-        }
-        {
-          social && (
-            <div>
-              <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
-              {story.likes}
-            </div>
-          )
-        }
-        </p>
       </div>
     </div>
   );
