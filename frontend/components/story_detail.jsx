@@ -12,7 +12,7 @@ function getTimeToRead(body){
   return timeToRead < 1 ? "< 1 min read" : `${timeToRead} min read`;
 }
 
-const details = ({ story })=> {
+const details = ({ story, social })=> {
   const { author: { username, img_url: imgUrl },
   body, created_at: createdAt } = story;
 
@@ -33,6 +33,25 @@ const details = ({ story })=> {
             {getTimeToRead(body)}
           </p>
         </div>
+
+        <p className="social-counts">
+        {
+          social && (
+            <div>
+              <i className="fa fa-comment-o" aria-hidden="true"></i>
+              {story.num_comments}
+            </div>
+          )
+        }
+        {
+          social && (
+            <div>
+              <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+              {story.likes}
+            </div>
+          )
+        }
+        </p>
       </div>
     </div>
   );

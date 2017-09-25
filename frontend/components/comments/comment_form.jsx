@@ -12,7 +12,8 @@ class CommentForm extends React.Component {
     this.setState({ body: np.comment.body, id: np.comment.id })
   }
   changeFactory(field){
-    return ({ target: { value: body } }) => this.setState({ body })
+    //return ({ target: { value: body } }) => this.setState({ body })
+    return e => this.setState({ [field]: e.target.value })
   }
   handleSubmit(e){
     e.preventDefault()

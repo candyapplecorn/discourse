@@ -25,7 +25,7 @@ class StoryIndexItem extends React.Component {
           }
           <div className="story-index-item-details">
             <p>{title}</p>
-            <StoryDetail story={this.props.story} />
+            <StoryDetail story={this.props.story} social={true} />
           </div>
         </div>
       </Link>
