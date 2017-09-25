@@ -15,7 +15,9 @@ function getFirstImage(html){
 class StoryIndexItem extends React.Component {
   render(){
     const story = this.props.story;
-    const { title, id, body } = story
+    const {
+      title, id, body, current_user_likes, current_user_commented
+    } = story
     const imgUrl = getFirstImage(body);
 
     return (
@@ -27,7 +29,10 @@ class StoryIndexItem extends React.Component {
           <div className="story-index-item-details">
             <p>{title}</p>
             <StoryDetail story={this.props.story} social={true} />
-            <SocialCounts num_comments={story.num_comments} num_likes={story.likes} />
+            <SocialCounts current_user_likes={current_user_likes}
+                          current_user_commented={current_user_commented}
+                          num_comments={story.num_comments}
+                          num_likes={story.likes} />
           </div>
         </div>
       </Link>

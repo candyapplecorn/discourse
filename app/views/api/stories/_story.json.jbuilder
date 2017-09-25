@@ -10,7 +10,14 @@ end
 # Does the current user like this story?
 if !logged_in?
   json.set! :current_user_likes, false
+  json.set! :current_user_commented, false
 else
   json.set! :current_user_likes,
   !!Like.find_by("user_id = ? AND story_id = ?", story.author.id, story.id)
+
+
+  json.set! :current_user_commented,
+  Comment
+    .where("user_id = ? AND story_id = ?", story.author.id, story.id)
+    .count > 0
 end
