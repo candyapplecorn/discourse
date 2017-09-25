@@ -29,7 +29,6 @@ class CommentsIndex extends React.Component {
         )
       }
       </ul>
-      <p>Don't forget a form!</p>
       <CommentFormContainer editing={this.state.editing} />
       </div>
     );
