@@ -13,3 +13,9 @@ export const create_comment = (storyId, comment) => $.ajax({
   method: 'post',
   data: { comment }
 });
+
+export const update_comment = comment => $.ajax({
+  url: `/api/comments/${comment.id}`,
+  method: 'patch',
+  data: { comment }
+})

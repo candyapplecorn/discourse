@@ -2,6 +2,7 @@ import React from 'react'
 import { merge } from 'lodash'
 import ReactHtmlParser from 'react-html-parser';
 import StoryDetail from './story_detail';
+import CommentsIndexContainer from './comments_index_container';
 
 class StoryShow extends React.Component {
   constructor(props){
@@ -36,6 +37,7 @@ class StoryShow extends React.Component {
             ReactHtmlParser(this.transformImages(body))
           }
         </section>
+        <CommentsIndexContainer />
       </main>
     );
   }
