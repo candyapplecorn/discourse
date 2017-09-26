@@ -18,7 +18,8 @@ class StoryIndexItem extends React.Component {
     const {
       title, id, body, current_user_likes, current_user_commented
     } = story
-    const imgUrl = getFirstImage(body);
+    // const imgUrl = getFirstImage(body);
+    const imgUrl = story.first_img
 
     return (
       <Link to={`/stories/${id}`}>

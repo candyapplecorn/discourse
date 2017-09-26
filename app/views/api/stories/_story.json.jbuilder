@@ -1,4 +1,11 @@
-json.extract! story, :created_at, :title, :body, :id
+json.extract! story, :created_at, :title, :id
+
+json.set! :first_img, story.first_img
+json.set! :time_to_read, story.get_time_to_read
+
+if params[:action] == "show"
+  json.extract! story, :body
+end
 
 json.set! :likes, story.likes.count
 json.set! :num_comments, story.comments.count

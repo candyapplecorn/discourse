@@ -14,7 +14,7 @@ function getTimeToRead(body){
 
 const details = ({ story, social })=> {
   const { author: { username, img_url: imgUrl },
-  body, created_at: createdAt } = story;
+  body, created_at: createdAt, time_to_read } = story;
 
 
   return (
@@ -31,7 +31,7 @@ const details = ({ story, social })=> {
           <p>
             {(new Date(createdAt)).toDateString().replace(/.*? /, "")}
             {" · "}
-            {getTimeToRead(body)}
+            {time_to_read}
           </p>
         </div>
       </div>
