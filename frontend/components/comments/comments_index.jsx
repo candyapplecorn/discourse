@@ -16,6 +16,9 @@ class CommentsIndex extends React.Component {
   editComment(id){
     this.setState({ editing: id })
   }
+  deleteComment(id){
+    this.props.deleteComment(id)
+  }
   render(){
     return (
       <div className="comments-index" id="comments">
@@ -26,6 +29,7 @@ class CommentsIndex extends React.Component {
           <CommentIndexItem key={i + c.body}
                             comment={c}
                             editComment={this.editComment.bind(this)}
+                            deleteComment={this.deleteComment.bind(this)}
                              />
         )
       }

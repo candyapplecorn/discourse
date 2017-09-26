@@ -5,7 +5,7 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
     attr_reader :password
 
-    has_many :comments
+    has_many :comments, dependent: :destroy
     has_many :stories
     has_many :likes
     has_many :bookmarks
