@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+Story.destroy_all
+
 SEED_STORIES = %W{
   ApplesSpecialty.txt
   DoctorsAndVirtualReality.txt
@@ -15,7 +19,7 @@ SEED_STORIES = %W{
   PocketGuideToAGoodEnoughLife.txt
   RoboticRetirementAdvisors.txt
   WhatToSayAboutGameOfThrones.txt
-  WhyYouShouldRideAbike.txt
+  WhyYouShouldRideABike.txt
 }
 
 PASSWORD = SecureRandom::urlsafe_base64(24)
