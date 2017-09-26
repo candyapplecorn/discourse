@@ -32,11 +32,14 @@ SEED_USERS.each do |u|
   User.create(u)
 end
 
+User.create(username: 'Anonymous', password: 'a password', bio: "Just another internet surfin' cool operator")
+
 SEED_STORIES.each do |filename|
   story = File.read(Rails.root.join('db', 'seed_stories', filename))
   u = User.find_by(username: SEED_USERS.first[:username])
+  title = filename.gsub(/([A-Z])/, ' \1').strip[0..-5]
 
-  Story.create(author_id: u.id, body: story, title: filename.gsub(/([A-Z])/, ' \1').strip.slice(0, -3))
+  Story.create(author_id: u.id, body: story, title: title)
 
   SEED_USERS.rotate!
 end
