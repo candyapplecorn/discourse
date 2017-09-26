@@ -9,10 +9,12 @@ header {
 
   box-sizing: border-box;
 
-  .home-link, .home-link:visited {
+  .home-link, .home-link:visited, .home-link:active {
     font-family: 'Pacifico', cursive;
     color: $black;
     font-size: 2.25em;//36px;
+    border: none;
+    outline: none;
   }
   border-bottom: 1px solid $black;
 

@@ -38,7 +38,5 @@ SEED_STORIES.each do |filename|
 
   Story.create(author_id: u.id, body: story, title: filename.gsub(/([A-Z])/, ' \1').strip.slice(0, -3))
 
-  # u.stories.create(body: story, title: filename.gsub(/([A-Z])/, ' \1').strip)
-
   SEED_USERS.rotate!
 end
