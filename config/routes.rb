@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
     resources :stories, except: [:new, :edit] do
       resources :comments, only: [:index, :create]
+      resources :likes, only: [:destroy, :create]
     end
 
     resources :comments, only: [:destroy, :update]
+
   end
 end

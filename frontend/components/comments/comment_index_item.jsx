@@ -29,7 +29,7 @@ class CommentIndexItem extends React.Component {
 
     const authorDetails = (
       <em>
-        {username}
+        {` - ${username}`}
       </em>
     )
 
