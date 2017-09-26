@@ -6,6 +6,8 @@
   display: flex;
   float: left;
 
+  box-shadow: 2px 2px 2px lighten($black, 95%);
+
   img {
     height: 100%;
     max-width: 40%;
