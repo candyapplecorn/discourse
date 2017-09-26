@@ -18,8 +18,7 @@ SEED_STORIES = %W{
   WhyYouShouldRideAbike.txt
 }
 
-debugger
-PASSWORD = SEED_STORIES.map {|s| Rails.root.join('db', 'seed_stories', s) }.join.split('').shuffle.rotate(rand(1000)).slice(0, 16)
+PASSWORD = SecureRandom::urlsafe_base64(24)
 
 SEED_USERS = [
   {username: "Angie", password: PASSWORD, bio: "An enthusiastic writer" },
@@ -34,10 +33,12 @@ SEED_USERS.each do |u|
 end
 
 SEED_STORIES.each do |filename|
-  story = File.read(filename)
-  u = User.find_by(username: SEED_USERS.first.username)
+  story = File.read(Rails.root.join('db', 'seed_stories', filename))
+  u = User.find_by(username: SEED_USERS.first[:username])
 
-  u.stories.create(body: story, title: filename.gsub(/([A-Z])/, ' \1').strip)
+  Story.create(author_id: u.id, body: story, title: filename.gsub(/([A-Z])/, ' \1').strip.slice(0, -3))
+
+  # u.stories.create(body: story, title: filename.gsub(/([A-Z])/, ' \1').strip)
 
   SEED_USERS.rotate!
 end
