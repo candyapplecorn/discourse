@@ -14,7 +14,7 @@
     font-size: 2em;
   }
 
-  p {
+  #buttons-after-story-form {
     display: flex;
     justify-content: space-between;
     //font-style: italic;
@@ -22,11 +22,11 @@
     align-items: center;
   }
 
-  p p {
+  #buttons-after-story-form p {
     margin-left: 2em;
   }
 
-  p input {
+  #buttons-after-story-form input {
     background: none;
     outline: none;
     border: none;
@@ -40,7 +40,7 @@
     padding: 0.25em 1em;
   }
 
-  p input:hover {
+  #buttons-after-story-form input:hover {
     cursor: pointer;
     background: lighten($black, 95%);
     transition: 0.5s;
