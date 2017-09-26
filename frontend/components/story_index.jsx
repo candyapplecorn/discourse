@@ -27,7 +27,7 @@ class StoryIndex extends React.Component {
     const img = []
     const txt = []
 
-    list.forEach(s => /jpg|jpeg|png|svg/.test(s.body) ?
+    list.forEach(s => s.first_img ?
                       img.push(s) : txt.push(s))
     ;
 
@@ -37,11 +37,12 @@ class StoryIndex extends React.Component {
   }
 
   render(){
+    const stories = this.pullImgStoriesUp(this.sortByDate())
+
     return (
       <section className="story-index">
         {
-          this.pullImgStoriesUp(this.sortByDate())
-          .map((s, i) =>
+          stories.map((s, i) =>
             <StoryIndexItem key={i} story={s} />
           )
         }

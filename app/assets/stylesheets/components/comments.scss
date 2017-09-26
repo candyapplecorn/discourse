@@ -60,7 +60,7 @@
     padding-right: 0.5em;
   }
 
-  button:hover, a:hover, .comment-form input:hover  {
+  button:hover, .comment-form input:hover  {
     cursor: pointer;
     background: lighten($black, 95%);
     transition: 0.5s;
