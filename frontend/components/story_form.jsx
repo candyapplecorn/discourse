@@ -57,12 +57,12 @@ class StoryForm extends React.Component {
         <ReactQuill tabIndex={2} value={this.state.body}
                     onChange={this.handleChange.bind(this)}/>
 
-        <p>
+        <div>
           <input type="submit" value={btnContents} />
           <p>
             Add images to your story by pasting their URL's into the editor
           </p>
-        </p>
+        </div>
 
 
       </form>
