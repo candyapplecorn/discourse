@@ -3,7 +3,8 @@ import { merge } from 'lodash'
 import ReactHtmlParser from 'react-html-parser';
 import StoryDetail from './story_detail';
 import CommentsIndexContainer from './comments/comments_index_container';
-import { PulseLoader } from 'halogen'
+import Loader from './loader.jsx';
+
 
 class StoryShow extends React.Component {
   constructor(props){
@@ -21,7 +22,7 @@ class StoryShow extends React.Component {
   // todo: turn img links into images
   render(){
     if (this.state.loading)
-      return <PulseLoader className="loader" color={"#00ab6b"}/>
+      return <Loader />
 
     const { story } = this.props
     const { author, body, title } = story // comments -> commentsIndex

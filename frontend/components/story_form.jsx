@@ -1,7 +1,7 @@
 import React from 'react';
 import { merge } from 'lodash'
 import ReactQuill from 'react-quill';
-import { PulseLoader } from 'halogen'
+import Loader from './loader.jsx';
 
 class StoryForm extends React.Component {
   constructor(props){
@@ -43,7 +43,7 @@ class StoryForm extends React.Component {
   }
   render(){
     if (this.state.loading)
-      return <PulseLoader className="loader" color={"#00ab6b"}/>
+      <Loader />
 
     const btnContents = this.props.formType == 'new' ?
           "Create Story" : "Update Story";
