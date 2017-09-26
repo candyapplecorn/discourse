@@ -4,6 +4,7 @@ import ReactHtmlParser from 'react-html-parser';
 import StoryDetail from './story_detail';
 import CommentsIndexContainer from './comments/comments_index_container';
 import Loader from './loader.jsx';
+import LikesContainer from './likes/likes_container';
 
 
 class StoryShow extends React.Component {
@@ -35,10 +36,9 @@ class StoryShow extends React.Component {
 
         <h1 className="story-title">{title}</h1>
         <section className="story-body">
-          {
-            ReactHtmlParser(this.transformImages(body))
-          }
+          { ReactHtmlParser(this.transformImages(body)) }
         </section>
+        <LikesContainer />
         <CommentsIndexContainer />
       </main>
     );
