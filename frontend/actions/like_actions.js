@@ -8,7 +8,7 @@ const receive_likes = sIDAndCULikes => ({
 });
 
 export const receiveLikes = likes => dispatch =>
-  receive_likes(likes)
+  dispatch(receive_likes(likes))
 ;
 
 export const createLike = storyId => dispatch =>

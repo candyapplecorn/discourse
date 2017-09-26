@@ -20,11 +20,11 @@ if !logged_in?
   json.set! :current_user_commented, false
 else
   json.set! :current_user_likes,
-  !!Like.find_by("user_id = ? AND story_id = ?", story.author.id, story.id)
+  !!Like.find_by("user_id = ? AND story_id = ?", current_user.id, story.id)
 
 
   json.set! :current_user_commented,
   Comment
-    .where("user_id = ? AND story_id = ?", story.author.id, story.id)
+    .where("user_id = ? AND story_id = ?", current_user.id, story.id)
     .count > 0
 end
