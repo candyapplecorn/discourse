@@ -19,6 +19,7 @@ class CommentsIndex extends React.Component {
   render(){
     return (
       <div className="comments-index" id="comments">
+      {this.props.loggedIn && <CommentFormContainer editing={this.state.editing} />}
       <ul>
       {
         this.props.comments.map((c, i) =>
@@ -29,7 +30,6 @@ class CommentsIndex extends React.Component {
         )
       }
       </ul>
-      <CommentFormContainer editing={this.state.editing} />
       </div>
     );
   }

@@ -8,6 +8,7 @@ import CommentsIndex from './comments_index';
 
 const mapStateToProps = (state, ownProps) => ({
   comments: story_comments(state, ownProps.match.params.id)
+, loggedIn: Boolean(state.session.currentUser)
 });
 
 const mapDispatchToProps = (dispatch, ownParams) => ({

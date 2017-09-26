@@ -5,5 +5,12 @@ export const story_comments = (state, storyId) =>
   .sort((a, b) => {
     a = new Date(a.created_at)
     b = new Date(b.created_at)
-    return a < b ? -1 : a > b ? +1 : 0;
+
+    // Sort in reverse chronological order - newest first
+    return a < b ? +1 : a > b ? -1 : 0;
+  }).map(comment => {
+    // Can the current user perform Edit and Delete on this comment?
+    comment.currentIsAuthor = state.session.currentUser &&
+                              state.session.currentUser.id == comment.author.id
+    return comment;
   })

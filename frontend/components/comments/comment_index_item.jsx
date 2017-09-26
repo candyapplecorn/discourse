@@ -8,15 +8,19 @@ class CommentIndexItem extends React.Component {
     this.props.editComment(this.props.comment.id)
   }
   render(){
+    const authorActions = (
+        <button className="edit-comment" onClick={this.handleClick.bind(this)}>
+          <i className="fa fa-pencil" aria-hidden="false"></i>
+          Edit Comment
+        </button>
+    );
+
     return (
       <div>
         <p>
           {this.props.comment.body}
         </p>
-        
-        <button onClick={this.handleClick.bind(this)}>
-          Edit Comment
-        </button>
+        {this.props.comment.currentIsAuthor && authorActions}
       </div>
     )
   }
