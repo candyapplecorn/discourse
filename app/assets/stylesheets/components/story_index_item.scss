@@ -14,6 +14,8 @@
     object-fit: none;
   }
 
+  img:hover { cursor: pointer;}
+
   margin: 1em 0em 0em 0em;
   align-items: center;
 
@@ -58,6 +60,13 @@
 .story-index-item-details {
   width: 100%;
   text-align: center;
+
+  a p {
+    color: $black
+  }
+  a p:hover {
+    color: inherit;
+  }
 }
 .story-index-item-details > p {
   margin: 0em 1em;
@@ -75,7 +84,7 @@
   }
 }
 
-.noimg {
+.noimg:not(.wide) {
   width: 50%;
   // height: 100px;
   // margin-top: 0;
@@ -85,7 +94,7 @@
 
   .social-counts {
     justify-content: center;
-    padding-bottom: 0em;
+    // padding-bottom: 0em;
 
     div:first-child {
       padding-right: 1.5em;

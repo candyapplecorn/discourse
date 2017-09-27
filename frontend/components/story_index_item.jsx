@@ -3,32 +3,26 @@ import { Link } from 'react-router-dom'
 import StoryDetail from './story_detail';
 import SocialCounts from './social_counts'
 
-function getFirstImage(html){
-  const imgUrl = html.replace(/.*?(http.*?(png|jpg|jpeg)).*/, "$1")
-
-  if (imgUrl === html)
-    return null;
-
-  return imgUrl;
-}
-
 class StoryIndexItem extends React.Component {
   render(){
     const story = this.props.story;
     const {
       title, id, body, current_user_likes, current_user_commented
     } = story
-    // const imgUrl = getFirstImage(body);
     const imgUrl = story.first_img
+    const goToUser = () => this.props.history.push(`/stories/${id}`)
 
     return (
-      <Link to={`/stories/${id}`}>
-        <div className={`story-index-item ${!imgUrl && "noimg"} ${story.odd && ' odd '}`}>
+        <div className={`story-index-item ${!imgUrl && "noimg"}
+                      ${Boolean(story.odd) && ' odd ' || ''}
+                      ${story.widen ? " wide " : ' noWide '}`}>
           {
-            imgUrl && (<img src={imgUrl} />)
+            imgUrl && (<img onClick={goToUser} src={imgUrl} />)
           }
           <div className="story-index-item-details">
+      <Link to={`/stories/${id}`}>
             <p>{title}</p>
+      </Link>
             <StoryDetail story={this.props.story} social={true} />
             <SocialCounts current_user_likes={current_user_likes}
                           current_user_commented={current_user_commented}
@@ -36,7 +30,6 @@ class StoryIndexItem extends React.Component {
                           num_likes={story.likes} />
           </div>
         </div>
-      </Link>
     );
   }
 }

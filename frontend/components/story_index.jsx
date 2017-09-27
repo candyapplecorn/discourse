@@ -14,7 +14,6 @@ class StoryIndex extends React.Component {
     if (!this.props.stories || !this.props.stories.length)
       return [];
 
-      // DOESN'T WORK
     return this.props.stories.sort(function(a, b){
       a = new Date(a.created_at)
       b = new Date(b.created_at)
@@ -31,7 +30,11 @@ class StoryIndex extends React.Component {
                       img.push(s) : txt.push(s))
     ;
 
-    (img.length % 2 == 1) && txt.forEach(s => (s.odd = true))
+    if (img.length % 2 == 1)
+      txt.forEach(s => (s.odd = true));
+
+    if (txt.length == 1 || txt.length % 2)
+      txt[txt.length - 1].widen = true;
 
     return img.concat(txt);
   }
@@ -43,7 +46,7 @@ class StoryIndex extends React.Component {
       <section className="story-index">
         {
           stories.map((s, i) =>
-            <StoryIndexItem key={i} story={s} />
+            <StoryIndexItem key={i} story={s} history={this.props.history} />
           )
         }
       </section>
