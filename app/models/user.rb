@@ -7,9 +7,13 @@ class User < ApplicationRecord
     attr_reader :password
 
     has_many :comments, dependent: :destroy
-    has_many :stories
     has_many :likes
     has_many :bookmarks
+    
+    has_many :stories,
+      primary_key: :id,
+      foreign_key: :author_id,
+      class_name: 'Story'
 
     has_many :followees,
     primary_key: :id,
@@ -24,6 +28,10 @@ class User < ApplicationRecord
     has_many :followed_users,
       through: :followees,
       source: :followee
+
+    has_many :followed_stories,
+      through: :followees,
+      source: :followee_stories
 
 
     has_many :liked_stories,

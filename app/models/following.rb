@@ -10,4 +10,8 @@ class Following < ApplicationRecord
   primary_key: :id,
   foreign_key: :followee_id,
   class_name: 'User'
+
+  has_many :followee_stories,
+    through: :followee,
+    source: :stories
 end

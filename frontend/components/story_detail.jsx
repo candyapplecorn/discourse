@@ -12,7 +12,7 @@ const details = ({ story, social })=> {
       <img className="user-icon" src={imgUrl} />
       <div>
         <div>
-          <p><Link className="author-detail-link" to={`users/${id}`}>{username}</Link></p>
+          <p><Link className="author-detail-link" to={`/users/${id}`}>{username}</Link></p>
           <button>Follow</button>
         </div>
 

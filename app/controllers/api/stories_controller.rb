@@ -1,9 +1,13 @@
 class Api::StoriesController < ApplicationController
   def index
     if params[:author_id]
-      @stories = Story.includes(:author, :comments, :likes)
-      .where("author_id = ?", params[:author_id])
-      .all
+      if params[:author_id] == String(current_user.id)
+        @stories = current_user.followee_stories.flatten
+      else
+        @stories = Story.includes(:author, :comments, :likes)
+        .where("author_id = ?", params[:author_id])
+        .all
+      end
     else
       @stories = Story.includes(:author, :comments, :likes).all
     end

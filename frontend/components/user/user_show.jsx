@@ -24,11 +24,19 @@ class UserShow extends React.Component {
   }
   render(){
     if (this.state.loading) return <Loader />;
-    const { username, img_url, bio, id } = this.props.user
+    const { viewingSelf, user: { username, img_url, bio, id } } = this.props
 
     return (
       <div>
         <UserShowDetails user={this.props.user}/>
+        {
+          viewingSelf &&
+          <div  className="user-show-following-msg">
+            <p>
+              Stories from writers you're following
+            </p>
+          </div>
+        }
         <StoryIndexContainer />
       </div>
     )
