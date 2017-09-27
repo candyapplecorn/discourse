@@ -1,7 +1,8 @@
 class Api::UsersController < ApplicationController
   def create
     @user = User.create(user_params)
-    @user.img_url = createTinyGraphURL(@user)
+    @user.img_url = User.createTinyGraphURL(@user)
+    # @user.img_url = createTinyGraphURL(@user)
     if @user.save
       login!(@user)
       render :show
@@ -26,7 +27,7 @@ class Api::UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :email)
   end
 
-  def createTinyGraphURL(user)
-    "http://tinygraphs.com/labs/isogrids/hexa/#{user.username.html_safe}?theme=seascape&numcolors=4&size=40&fmt=svg"
-  end
+  # def createTinyGraphURL(user)
+  #   "http://tinygraphs.com/labs/isogrids/hexa/#{user.username.html_safe}?theme=seascape&numcolors=4&size=40&fmt=svg"
+  # end
 end

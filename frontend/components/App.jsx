@@ -6,6 +6,7 @@ import AuthenticationContainer from './authentication_container';
 import SessionFormContainer from './session_form_container';
 import StoryFormContanier from './story_form_container';
 import StoryShowContainer from './story_show_container';
+import UserShowContainer from './user/user_show_container';
 import IndexContainer from './index_container';
 import Footer from './footer'
 
@@ -21,6 +22,7 @@ const App = () => (
     <main className="site-content">
 
       <Switch>
+        <Route exact path="/users/:id" component={UserShowContainer} />
         <Route exact path="/" component={IndexContainer} />
         <AuthRoute path="/login"  component={SessionFormContainer} />
         <AuthRoute path="/signup" component={SessionFormContainer} />
@@ -28,7 +30,8 @@ const App = () => (
         <ProtectedRoute exact path="/stories/:id/edit" component={StoryFormContanier} />
         <Route exact path="/stories/:id" component={StoryShowContainer} />
       </Switch>
-      </main>
+
+    </main>
 
     <Footer />
   </div>

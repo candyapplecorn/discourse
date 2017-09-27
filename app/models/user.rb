@@ -3,6 +3,7 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6, allow_nil: true }
     validates :username, uniqueness: true, on: :create ## usermodel reset! save! breaks. says can't have duplicate usernames when trying to login!
     after_initialize :ensure_session_token
+    after_initialize :ensure_img_url
     attr_reader :password
 
     has_many :comments, dependent: :destroy
@@ -36,5 +37,13 @@ class User < ApplicationRecord
     def self.find_by_credentials(credentials)
       user = User.find_by(username: credentials[:username])
       return user if user && user.is_password?(credentials[:password])
+    end
+    
+    def ensure_img_url
+      self.img_url = self.class.createTinyGraphURL(self) unless self.img_url
+    end
+
+    def self.createTinyGraphURL(user)
+      "http://tinygraphs.com/labs/isogrids/hexa/#{user.username.html_safe}?theme=seascape&numcolors=4&size=40&fmt=svg"
     end
 end
