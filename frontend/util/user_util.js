@@ -1,5 +1,5 @@
 export const get_user = userId => $.ajax({
-  url: `api/users/${userId}`
+  url: `api/users/${userId}?bio=true`
 , method: 'get'
 });
 

@@ -1,0 +1,60 @@
+@import "../variables";
+$border: 1px solid $seagreen;
+
+.user-show-details {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1em;
+
+  .user-show-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: $border;
+
+    .user-show-details-img {
+      height: 200px;
+      width: 200px;
+
+      img {
+        display: block;
+        position: relative;
+
+        width: 100%;
+        height: 100%;
+      }
+      // Centering SVG's is hard!
+      img.svg { margin-left: 0.5em; }
+    }
+
+    .user-show-details-username {
+      font-style: italic;
+      font-size: 2em;
+    }
+
+    .user-show-details-bio {
+      padding: 0.5em 0em;
+      font-size: 1.5em;
+    }
+
+    .user-show-details-links {
+
+    }
+
+  }
+}
+
+@media all and (max-width: 780px) {
+  .user-show-details-container {
+    max-width: 100%;
+  }
+}
+@media all and (min-width: 780px) {
+  .user-show-details-container {
+    max-width: 50%;
+  }
+}

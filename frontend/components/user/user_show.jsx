@@ -1,5 +1,7 @@
 import React from 'react';
 import Loader from '../loader';
+import UserShowDetails from './user_show_details';
+import StoryIndexContainer from '../story_index_container';
 
 class UserShow extends React.Component {
   constructor(props){
@@ -11,7 +13,9 @@ class UserShow extends React.Component {
   componentDidMount(){
     this.props.getUser().then(
       ({ user }) => {
-        debugger
+        this.setState(Object.assign({
+          loading: false,
+        }, user));
       }
     )
   }
@@ -19,10 +23,14 @@ class UserShow extends React.Component {
     this.setState({ loading: false })
   }
   render(){
-    if (this.state.loading) return <Loader />
+    if (this.state.loading) return <Loader />;
+    const { username, img_url, bio, id } = this.props.user
 
     return (
-      <h1>Hi from usershow</h1>
+      <div>
+        <UserShowDetails user={this.props.user}/>
+        <StoryIndexContainer />
+      </div>
     )
   }
 }
