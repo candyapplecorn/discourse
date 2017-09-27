@@ -7,7 +7,7 @@
   flex-direction: column;
 
   ul {
-    div {
+    div:not(.edit-comment) {
       padding-bottom: 0.5em;
       margin-bottom: 0.5em;
       border-bottom: 1px dashed lighten($black, 95%);
@@ -37,27 +37,30 @@
     font-style: italic;
   }
 
-  textarea {
-    min-height: 10vh;
-    width: 100%;
-    padding: none;
-    margin: none;
-    outline: none;
-    font-family: inherit;
-    font-size: inherit;
-    margin: 0em 0em 0.5em 0em;
-  }
-
   input {
     align-self: flex-start;
   }
 }
+.comment-form textarea, .edit-comment textarea {
+  min-height: 10vh;
+  width: 100%;
+  padding: none;
+  margin: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0em 0em 0.5em 0em;
+}
 
-.edit-comment { margin-right: 1em }
+
+.edit-comment textarea + div {
+  border-bottom: none !important;
+}
+.edit-comment, .edit-comment button { margin-right: 1em }
 .edit-comment:focus, .delete-comment:focus, .comment-form input:focus {
   outline: none;
 }
-.edit-comment, .delete-comment, .comment-form input {
+.edit-comment, .delete-comment, .comment-form input, .edit-comment button {
     font-family: inherit;
     color: $seagreen;
     background: white;
@@ -82,3 +85,13 @@
       color: darken($seagreen, 50%);
     }
   }
+.edit-comment:not(button) {
+  border-radius: 5px;
+  border-color: $seagreen;
+
+  transition: 0.5s;
+
+  textarea {
+    margin-top: 1em;
+  }
+}

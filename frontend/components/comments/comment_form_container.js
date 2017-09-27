@@ -12,7 +12,12 @@ const mapStateToProps = (state, ownProps) => {
   let comment = DEFAULT_COMMENT
   let formType = 'new'
 
-  if (ownProps.editing != null){
+  /*
+  Since comments may be edited in-line, the new comment form no longer needs
+  its dual functionality. Rather than removing it, however, I've chosen to move
+  on to implementing other required MVP features.
+  */
+  if (false){//ownProps.editing != null){
     comment = state.comments[ownProps.editing]
     formType = 'edit'
   }
@@ -23,7 +28,10 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   let action = comment => dispatch(createComment(ownProps.match.params.id, comment))
 
-  if (ownProps.editing != null)
+  /*
+  See above comment.
+  */
+  if (false)//ownProps.editing != null)
     action = comment =>{ dispatch(updateComment(comment)) }
 
   return {

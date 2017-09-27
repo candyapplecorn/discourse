@@ -30,6 +30,7 @@ class CommentsIndex extends React.Component {
                             comment={c}
                             editComment={this.editComment.bind(this)}
                             deleteComment={this.deleteComment.bind(this)}
+                            updateComment={this.props.updateComment}
                              />
         )
       }
