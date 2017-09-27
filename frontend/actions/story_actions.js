@@ -41,8 +41,8 @@ export const getStory = id => dispatch =>
   , errors => dispatch(receive_story_errors(errors.responseJSON))
   );
 
-export const getStories = () => dispatch =>
-  get_stories().then(
+export const getStories = authorId => dispatch =>
+  get_stories(authorId ? `?author_id=${authorId}` : '').then(
     stories => dispatch(receive_stories(stories))
   , errors => dispatch(receive_story_errors(errors.responseJSON))
   );

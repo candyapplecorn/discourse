@@ -1,6 +1,12 @@
 class Api::StoriesController < ApplicationController
   def index
-    @stories = Story.includes(:author, :comments, :likes).all
+    if params[:author_id]
+      @stories = Story.includes(:author, :comments, :likes)
+      .where("author_id = ?", params[:author_id])
+      .all
+    else
+      @stories = Story.includes(:author, :comments, :likes).all
+    end
   end
 
   def show

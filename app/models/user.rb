@@ -11,6 +11,21 @@ class User < ApplicationRecord
     has_many :likes
     has_many :bookmarks
 
+    has_many :followees,
+    primary_key: :id,
+    foreign_key: :follower_id,
+    class_name: 'Following'
+
+    has_many :followers,
+    primary_key: :id,
+    foreign_key: :followee_id,
+    class_name: 'Following'
+
+    has_many :followed_users,
+      through: :followees,
+      source: :followee
+
+
     has_many :liked_stories,
       through: :likes,
       source: :story
@@ -38,12 +53,16 @@ class User < ApplicationRecord
       user = User.find_by(username: credentials[:username])
       return user if user && user.is_password?(credentials[:password])
     end
-    
+
     def ensure_img_url
       self.img_url = self.class.createTinyGraphURL(self) unless self.img_url
     end
 
     def self.createTinyGraphURL(user)
       "http://tinygraphs.com/labs/isogrids/hexa/#{user.username.html_safe}?theme=seascape&numcolors=4&size=40&fmt=svg"
+    end
+
+    def followee_stories
+      self.followed_users.map(&:stories)
     end
 end

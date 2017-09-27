@@ -20,7 +20,7 @@ export const get_story = id => $.ajax({
   method: 'get'
 });
 
-export const get_stories = () => $.ajax({
-  url: `api/stories`,
+export const get_stories = (authorQuery) => $.ajax({
+  url: `api/stories${authorQuery}`,
   method: 'get'
 });

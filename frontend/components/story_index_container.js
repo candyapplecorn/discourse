@@ -15,9 +15,13 @@ const mapStateToProps = (state, ownProps) => {
   }
 };
 
-const mapDispatchToProps = dispatch => ({
-  getStories: () => dispatch(getStories())
-});
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { match: { params: {  id: authorId } } } = ownProps;
+
+  return {
+    getStories: () => dispatch(getStories(authorId))
+  };
+};
 
 export default withRouter(connect(
   mapStateToProps,
