@@ -61,7 +61,8 @@
   text-align: center;
 
   a p {
-    color: $black
+    color: $black;
+    font-size: 1.5em;
   }
   a p:hover {
     color: inherit;
@@ -69,7 +70,6 @@
 }
 .story-index-item-details > p {
   margin: 0em 1em;
-  font-size: 1.5em;
 }
 
 .social-counts {
@@ -104,7 +104,7 @@
   }
 }
 
-.story-show .author-detail-link {
+.story-show .author-detail-link, .story-index .author-detail-link {
   color: $black !important;
   margin: 0;
   padding: 0 ;
@@ -115,7 +115,7 @@
   width: 80px;
   height: 80px;
 }
-.story-show .author-detail-link:hover {
+.story-show .author-detail-link:hover, .story-index .author-detail-link:hover {
   color: $seagreen !important;
   text-decoration: underline;
   border: none;
