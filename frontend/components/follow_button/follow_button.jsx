@@ -8,10 +8,11 @@ class FollowButton extends React.Component {
       disabled: false
     }
   }
-  
+
   handleClick(event){
     event.preventDefault()
-    const { disabled, following, deleteFollow, createFollow } = this.state
+    const { disabled, following } = this.state
+    const { deleteFollow, createFollow } = this.props
 
     if (disabled) return;
 
@@ -22,6 +23,12 @@ class FollowButton extends React.Component {
     );
 
     this.setState({ disabled: true })
+  }
+
+  componentWillReceiveProps(newProps){
+    this.setState({
+      following: newProps.following
+    })
   }
 
   render(){

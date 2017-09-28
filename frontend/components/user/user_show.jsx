@@ -40,7 +40,8 @@ class UserShow extends React.Component {
 
     return (
       <div>
-        <UserShowDetails user={this.props.user}/>
+        <UserShowDetails userId={this.props.match.params.id }
+                         user={this.props.user}/>
         {
           viewingSelf &&
           <div  className="user-show-following-msg">
