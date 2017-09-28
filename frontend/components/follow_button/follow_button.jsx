@@ -36,7 +36,7 @@ class FollowButton extends React.Component {
     const { hidden } = this.props
 
     return (
-      <button className={`follow-button ${hidden ? " hidden" : ''}`}
+      <button className={`follow-button ${hidden ? " hide-me" : ''}`}
               onClick={this.handleClick.bind(this)}>
 
               { following ? "Unfollow" : "Follow" }
