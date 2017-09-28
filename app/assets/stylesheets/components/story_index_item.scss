@@ -115,6 +115,9 @@
   width: 80px;
   height: 80px;
 }
+.wide {
+  width: 100%;
+}
 .story-show .author-detail-link:hover, .story-index .author-detail-link:hover {
   color: $seagreen !important;
   text-decoration: underline;
@@ -126,7 +129,7 @@
   .noimg {
     width: 100%;
   }
-  .story-index-item:not(.noimg) {
+  .story-index-item:not(.noimg):not(.wide) {
     width: calc(50% - 0.5em);
   }
   .story-index a:nth-child(even) .story-index-item:not(.noimg) {//}:nth-child(even) {

@@ -33,8 +33,10 @@ class StoryIndex extends React.Component {
     if (img.length % 2 == 1)
       txt.forEach(s => (s.odd = true));
 
-    if (txt.length == 1 || txt.length % 2)
-      txt[txt.length - 1].widen = true;
+    [img, txt].forEach(l => {
+      if (l.length == 1 || l.length % 2)
+        l[l.length - 1].widen = true;
+    })
 
     return img.concat(txt);
   }
