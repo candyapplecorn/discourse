@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     following: id in followee_ids,
-    hidden: Boolean(state.currentUser)
+    hidden: !Boolean(state.session.currentUser)
   };
 };
 

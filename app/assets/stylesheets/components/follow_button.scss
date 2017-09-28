@@ -16,3 +16,7 @@
   background: lighten($black, 95%);
   transition: 0.5s;
 }
+
+.follow-button.hidden {
+  display: none;
+}

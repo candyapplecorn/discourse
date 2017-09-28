@@ -83,6 +83,11 @@
   }
 }
 
+a.author-detail-link {
+  background: red;
+  font-size: 1.25em;
+}
+
 .noimg:not(.wide) {
   width: 50%;
   // height: 100px;
@@ -137,6 +142,14 @@
   }
   .story-index a:nth-child(odd) .story-index-item:not(.noimg) {//}:nth-child(even) {
     margin-right: 0.5em;
+  }
+  .story-index-item:nth-child(even):not(.wide):not(.noimg){
+    margin: 1em 0em 1em 1em;
+    width: calc(50% - 1em)
+  }
+  .story-index-item:nth-child(odd):not(.wide):not(.noimg){
+    margin: 1em 1em 1em 0em;
+    width: calc(50% - 1em)
   }
 }
 @media all and (max-width: 750px){
