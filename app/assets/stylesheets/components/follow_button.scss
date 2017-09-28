@@ -1,0 +1,18 @@
+@import "../variables";
+
+.follow-button {
+  background: white;
+  border-radius: 1em;
+  outline: none;
+  border: 1px solid lighten($black, 55%);
+  padding: 0.15em 0.5em;
+  font-family: $muli;
+  color: $seagreen;
+  font-weight: bold;
+  box-shadow: none;
+  transition: 0.5s;
+}
+.follow-button:hover {
+  background: lighten($black, 95%);
+  transition: 0.5s;
+}
