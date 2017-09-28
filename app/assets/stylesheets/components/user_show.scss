@@ -39,6 +39,7 @@ $border: 1px solid $seagreen;
     .user-show-details-bio {
       padding: 0.5em 0em;
       font-size: 1.5em;
+      color: lighten($black, 30%)
     }
 
     .user-show-details-links {

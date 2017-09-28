@@ -1,7 +1,7 @@
 class Api::StoriesController < ApplicationController
   def index
     if params[:author_id]
-      if params[:author_id] == String(current_user.id)
+      if logged_in? && params[:author_id] == String(current_user.id)
         @stories = current_user.followee_stories.flatten
       else
         @stories = Story.includes(:author, :comments, :likes)

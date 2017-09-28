@@ -7,7 +7,7 @@ import StoryIndex from './story_index.jsx';
 const mapStateToProps = (state, ownProps) => {
   const { match: { path, params: {  id: authorId } } } = ownProps;
   const isUserShow = /user/.test(path);
-  const viewingSelf = isUserShow && authorId == state.session.currentUser.id
+  const viewingSelf = isUserShow && state.session.currentUser && authorId == state.session.currentUser.id
   const indexStories = () => toList(state.stories);
   const authorStories = () => byAuthor(state.stories, authorId)
 
