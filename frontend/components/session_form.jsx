@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
     return (
       <section className="auth-form">
         <main>
-          <h1>{header}</h1>
+          <h1 id="auth-form-header">{header}</h1>
 
           <ul className="auth-errors">
             {

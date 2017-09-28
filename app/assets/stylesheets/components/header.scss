@@ -50,3 +50,10 @@ header {
     margin: 0 !important;
   }
 }
+
+@media all and (max-width: 500px) {
+  #authentication {
+    // display: flex;
+    // flex-direction: column;
+  }
+}
