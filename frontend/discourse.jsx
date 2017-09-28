@@ -10,6 +10,7 @@ import * as SessionActions from './actions/session_actions';
 import * as StoryActions from './actions/story_actions';
 import * as StoryAPIUtil from './util/story_util';
 import * as UserAPIUtil from './util/user_util';
+import * as FollowAPIUtil from './util/follow_util';
 // END DEBUG
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -36,7 +37,8 @@ function debugging(store){
     window.dispatch = store.dispatch
     window.SessionsActions = SessionActions;
     window.StoryActions = StoryActions;
-    window.StoryAPIUtil = StoryAPIUtil
-    window.CommentAPIUtil = CommentAPIUtil
-    window.UserAPIUtil = UserAPIUtil 
+    window.StoryAPIUtil = StoryAPIUtil;
+    window.CommentAPIUtil = CommentAPIUtil;
+    window.UserAPIUtil = UserAPIUtil ;
+    window.FollowAPIUtil = FollowAPIUtil;
 }

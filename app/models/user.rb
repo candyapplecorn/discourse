@@ -9,7 +9,7 @@ class User < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :likes
     has_many :bookmarks
-    
+
     has_many :stories,
       primary_key: :id,
       foreign_key: :author_id,
@@ -72,5 +72,12 @@ class User < ApplicationRecord
 
     def followee_stories
       self.followed_users.map(&:stories)
+    end
+
+    def followee_ids
+      self.followed_users.map(&:id).inject({}) { |acc, id|
+        acc[id] = true
+        acc
+      }
     end
 end
