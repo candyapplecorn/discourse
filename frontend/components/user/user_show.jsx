@@ -41,7 +41,8 @@ class UserShow extends React.Component {
     return (
       <div>
         <UserShowDetails userId={this.props.match.params.id }
-                         user={this.props.user}/>
+                         user={this.props.user}
+                         viewingSelf={this.props.viewingSelf}/>
         {
           viewingSelf &&
           <div  className="user-show-following-msg">
@@ -50,7 +51,7 @@ class UserShow extends React.Component {
             </p>
           </div>
         }
-        <StoryIndexContainer />
+        <StoryIndexContainer viewingSelf={viewingSelf} />
       </div>
     )
   }

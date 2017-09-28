@@ -2,7 +2,9 @@
   import { Link } from 'react-router-dom';
   import FollowButtonContainer from '../follow_button/follow_button_container';
 
-  export default ({ userId, user: { username, img_url, bio, id } }) => (
+  export default ({ viewingSelf, user: { username, img_url, bio, id } }) => {
+
+  return (
       <div className="user-show-details">
         <div className="user-show-details-container">
 
@@ -20,10 +22,9 @@
 
           <div className="user-show-details-bio">{bio}</div>
 
-          <span>Follow</span>
           {
-            userId != id ?
-              <FollowButtonContainer id={id}/> : null
+            !viewingSelf &&
+              <FollowButtonContainer id={id}/>
           }
 
           <div className="user-show-details-links"></div>
@@ -31,3 +32,4 @@
         </div>
       </div>
 );
+}

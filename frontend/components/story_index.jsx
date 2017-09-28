@@ -1,13 +1,27 @@
 import React from 'react'
 import StoryIndexItem from './story_index_item';
+import { isEqual } from 'lodash'
 
 class StoryIndex extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      followee_ids: props.followee_ids
+    }
   }
 
   componentDidMount(){
     this.props.getStories()
+  }
+
+  componentWillReceiveProps(newProps){
+    const { followee_ids } = newProps;
+    if (!isEqual(followee_ids, this.state.followee_ids)){
+      this.setState({
+        followee_ids: followee_ids
+      })
+      this.props.getStories()
+    }
   }
 
   sortByDate(){
@@ -42,7 +56,7 @@ class StoryIndex extends React.Component {
   }
 
   render(){
-    const stories = this.pullImgStoriesUp(this.sortByDate())
+    let stories = this.pullImgStoriesUp(this.sortByDate())
 
     return (
       <section className="story-index">

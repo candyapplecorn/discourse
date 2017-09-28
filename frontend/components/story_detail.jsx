@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import FollowButtonContainer from './follow_button/follow_button_container';
 
 const details = ({ story, social })=> {
   const { author: { id, username, img_url: imgUrl },
@@ -13,7 +14,7 @@ const details = ({ story, social })=> {
       <div>
         <div>
           <p><Link className="author-detail-link" to={`/users/${id}`}>{username}</Link></p>
-          <button>Follow</button>
+          <FollowButtonContainer id={id} />
         </div>
 
         <div>

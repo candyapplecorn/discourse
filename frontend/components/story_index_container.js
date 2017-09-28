@@ -12,7 +12,9 @@ const mapStateToProps = (state, ownProps) => {
   const authorStories = () => byAuthor(state.stories, authorId)
 
   return {
-    stories: isUserShow && !viewingSelf ? authorStories() : indexStories()
+    stories: isUserShow && !viewingSelf ? authorStories() : indexStories(),
+    followee_ids: state.session.currentUser ? state.session.currentUser.followee_ids : {},
+    viewingSelf: viewingSelf
   }
 };
 
