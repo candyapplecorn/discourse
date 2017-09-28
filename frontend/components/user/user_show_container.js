@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  getUser: userId => dispatch(getUser(ownProps.match.params.id))
+  getUser: userId => dispatch(getUser(userId || ownProps.match.params.id))
 , patchUser: user => dispatch(patchUser(user))
 })
 

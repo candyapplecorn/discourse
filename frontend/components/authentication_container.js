@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { logout } from '../actions/session_actions';
+import { withRouter } from 'react-router'
 import Authentication from './authentication';
 
 const mapStateToProps = state => ({
@@ -9,9 +10,9 @@ const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
 })
 
-const AuthenticationContainer = connect(
+const AuthenticationContainer = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Authentication);
+)(Authentication));
 
 export default AuthenticationContainer
