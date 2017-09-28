@@ -14,7 +14,7 @@ const Authentication = ({ currentUser, logout, history }) =>{
         </Link>
         <div>
 
-        <Link to={`/users/${currentUser.id}`}>
+        <Link className="nogreen" to={`/users/${currentUser.id}`}>
           <p>{currentUser.username}</p>
         </Link>
 

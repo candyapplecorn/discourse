@@ -44,4 +44,9 @@ header {
       cursor: pointer;
     }
   }
+
+  .nogreen {
+    color: $black !important;
+    margin: 0 !important;
+  }
 }

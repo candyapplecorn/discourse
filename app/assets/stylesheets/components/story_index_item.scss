@@ -32,7 +32,6 @@
     a.author-detail-link {
       outline: none;
       border: none;
-
     }
     a.author-detail-link:hover {
       background: white;
@@ -105,6 +104,23 @@
   }
 }
 
+.story-show .author-detail-link {
+  color: $black !important;
+  margin: 0;
+  padding: 0 ;
+  border: none;
+}
+
+.story-show .user-icon {
+  width: 80px;
+  height: 80px;
+}
+.story-show .author-detail-link:hover {
+  color: $seagreen !important;
+  text-decoration: underline;
+  border: none;
+  background: white;
+}
 
 @media all and (min-width: 1080px) {
   .noimg {

@@ -23,7 +23,6 @@ class UserShow extends React.Component {
   componentWillReceiveProps(newProps){
     if (newProps.user) {
       this.setState({ loading: false })
-      debugger
     }
     else {
       this.props.getUser(newProps.match.params.id).then(
@@ -31,8 +30,6 @@ class UserShow extends React.Component {
           this.setState(merge({
             loading: false,
           }, user));
-          const x = newProps
-          debugger
         }
       )
     }
