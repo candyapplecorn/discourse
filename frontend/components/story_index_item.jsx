@@ -11,13 +11,16 @@ class StoryIndexItem extends React.Component {
     } = story
     const imgUrl = story.first_img
     const goToUser = () => this.props.history.push(`/stories/${id}`)
+    const proxy = "https://images.weserv.nl/?url=";
+    const prefixProxy = url => url.replace(/.*?(www)?(https?)\/?\/?:?(.*)/,
+    `${proxy}$3`);
 
     return (
         <div className={`story-index-item ${!imgUrl && "noimg"}
                       ${Boolean(story.odd) && ' odd ' || ''}
                       ${story.widen ? " wide " : ' noWide '}`}>
           {
-            imgUrl && (<img onClick={goToUser} src={imgUrl} />)
+            imgUrl && (<img onClick={goToUser} src={prefixProxy(imgUrl)} />)
           }
           <div className="story-index-item-details">
       <Link to={`/stories/${id}`}>
