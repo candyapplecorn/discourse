@@ -9,6 +9,11 @@ header {
 
   box-sizing: border-box;
 
+  .user-icon-small {
+    height: 40px;
+    width: 40px;
+  }
+
   .home-link, .home-link:visited, .home-link:active {
     font-family: 'Pacifico', cursive;
     color: $black;

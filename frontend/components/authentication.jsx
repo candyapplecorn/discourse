@@ -10,7 +10,7 @@ const Authentication = ({ currentUser, logout, history }) =>{
     currentUser ? (
       <div id="authentication">
         <Link to={`/users/${currentUser.id}`}>
-          <img src={ currentUser.img_url } />
+          <img className="user-icon-small" src={ currentUser.img_url } />
         </Link>
         <div>
 
