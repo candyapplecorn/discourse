@@ -1,6 +1,6 @@
 # [www.write-it-up.com](https://write-it-up.herokuapp.com/)
 
-Write it Up is a SPA _(__s__ingle __p__age web __a__pplication)_ centered around stories. Users can create, like and comment on stories, as well as follow other users. The application has two main parts: a Ruby on Rails back end, and a React-Redux front end.
+Write it Up is a SPA (__s__ingle __p__age web __a__pplication) centered around stories. Users can create, like and comment on stories, as well as follow other users. The application has two main parts: a Ruby on Rails back end, and a React-Redux front end.
 
 See the [wiki](https://github.com/candyapplecorn/discourse/wiki) for Write it Up's project proposal, which includes the database schema, component wireframes and more.
 
@@ -13,7 +13,7 @@ See the [wiki](https://github.com/candyapplecorn/discourse/wiki) for Write it Up
 Taking __Write it Up__ for a test drive is as easy as clicking a button. Logging in instantly doesn't give as much satisfaction as seeing the website type credentials in. This was easily implemented with some calls to Javascript's ```setTimeout```.
 
 ### _Elevated State_
-Flux apps keep state in stores. Redux is a flavor of Flux which keeps a single top-level, global state, known as the _store_. This global store is treated as the "single source of truth". Connecting components to the Redux store simplifies managing an application's state. These ```FollowButton``` React components are wired to the Redux store:
+[Redux](http://redux.js.org/) is a flavor of [Flux](https://facebook.github.io/flux/) which keeps a single top-level, global state, known as the _store_. This global store is treated as the "single source of truth". Connecting components to the Redux store simplifies managing an application's state. These ```FollowButton``` React components are wired to the Redux store:
 
 ![followToggle](wiki/assets/readme-media/followToggle.gif)
 
@@ -34,7 +34,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     following: id in followee_ids,
-    hidden: !Boolean(state.session.currentUser)
+    hidden: !Boolean(currentUser)
   };
 };
 ```
@@ -42,9 +42,9 @@ const mapStateToProps = (state, ownProps) => {
 Follows is a table in the database; _delete_ a row to unfollow a user, or _create_ a row to follow. The presentational component needs to be able to perform these tasks. The container component thus provides the presentational component with these [thunk action creators](https://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559#35415559):
 
 ```js
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  createFollow: () => dispatch(createFollow(ownProps.id)),
-  deleteFollow: () => dispatch(deleteFollow(ownProps.id))
+const mapDispatchToProps = (dispatch, { id }) => ({
+  createFollow: () => dispatch(createFollow(id)),
+  deleteFollow: () => dispatch(deleteFollow(id))
 });
 ```
 

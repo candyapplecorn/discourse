@@ -9,13 +9,13 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     following: id in followee_ids,
-    hidden: !Boolean(state.session.currentUser)
+    hidden: !Boolean(currentUser)
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  createFollow: () => dispatch(createFollow(ownProps.id)),
-  deleteFollow: () => dispatch(deleteFollow(ownProps.id))
+const mapDispatchToProps = (dispatch, { id }) => ({
+  createFollow: () => dispatch(createFollow(id)),
+  deleteFollow: () => dispatch(deleteFollow(id))
 });
 
 export default connect(
