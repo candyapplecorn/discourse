@@ -10,13 +10,12 @@ class FollowButton extends React.Component {
   }
 
   handleClick(event){
-    event.preventDefault()
-    const { disabled, following } = this.state
-    const { deleteFollow, createFollow } = this.props
+    event.preventDefault();
+    const { disabled, following } = this.state;
+    const { deleteFollow, createFollow } = this.props;
+    const action = following ? deleteFollow : createFollow;
 
     if (disabled) return;
-
-    const action = following ? deleteFollow : createFollow;
 
     action().then(
       () => this.setState({ disabled: false })

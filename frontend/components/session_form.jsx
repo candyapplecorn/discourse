@@ -70,21 +70,21 @@ class SessionForm extends React.Component {
   }
 
   demoUserLogin(event){
-    event.preventDefault()
-    const username = "Anonymous"
-    const password = "a password"
-
+    event.preventDefault();
     if (!this.state.ui) return;
 
-    username.split('').forEach((l, i) => window.setTimeout(() => {
+    const username = "Anonymous";
+    const password = "a password";
+
+    username.split('').forEach((l, i) => window.setTimeout(() =>
       this.setState({ username: this.state.username + l })
-    }, 70 * (i + 1)))
+    , 70 * (i + 1)));
 
-    password.split('').forEach((l, i) => window.setTimeout(() => {
+    password.split('').forEach((l, i) => window.setTimeout(() =>
       this.setState({ password: this.state.password + l })
-    }, 70 * (i + 1 + username.length)))
+    , 70 * (i + 1 + username.length)));
 
-    window.setTimeout(() => this.props.login({username,password}).then(
+    window.setTimeout(() => this.props.login({ username, password }).then(
       () => this.props.history.push('/')
     ), (username.length + password.length + 20) * 50)
 

@@ -4,8 +4,8 @@ import { createFollow, deleteFollow } from '../../actions/follow_actions'
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps;
-  const { currentUser } = state.session
-  const followee_ids = currentUser ? currentUser.followee_ids : []
+  const { currentUser } = state.session;
+  const followee_ids = currentUser ? currentUser.followee_ids : [];
 
   return {
     following: id in followee_ids,
