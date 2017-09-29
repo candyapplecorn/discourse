@@ -1,6 +1,6 @@
 # [www.write-it-up.com](https://write-it-up.herokuapp.com/)
 
-Write it Up is a SPA (__s__ingle __p__age web __a__pplication) centered around stories. Users can create, like and comment on stories, as well as follow other users. The application has two main parts: a Ruby on Rails back end, and a React-Redux front end.
+Write it Up is a SPA (**s**ingle **p**age web **a**pplication) centered around stories. Users can create, like and comment on stories, as well as follow other users. The application has two main parts: a Ruby on Rails back end, and a React-Redux front end.
 
 See the [wiki](https://github.com/candyapplecorn/discourse/wiki) for Write it Up's project proposal, which includes the database schema, component wireframes and more.
 
