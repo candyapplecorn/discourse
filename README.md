@@ -27,7 +27,7 @@ All ```FollowButton``` components connect to and may affect the Redux store. A c
 
 A common design pattern in React + Redux is to split features into container and presentational components. Containers connect to the Redux store and import their state, as well as wrap around presentational components, supplying them with information. The presentational component for the ```FollowButton``` only needs to know two things:
 
-1. Is the _current user_ following this user? The buttons needs to say "Follow" or "Unfollow".
+1. Is the _current user_ following this user? The buttons need to say "Follow" or "Unfollow".
 2. Is anyone even logged in? Only registered users should see a ```FollowButton```.
 
 This information can be provided by selecting a slice of state from the Redux store. This is conventionally done in the container component's ```mapStateToProps``` function:
@@ -89,3 +89,39 @@ handleClick(){
   this.setState({ ui: false })
 }
 ```
+
+### _Asynchronous Ruby on Rails API_
+
+All requests from the front end are made through AJAX to routes namespaced under _api_. Rails serves just a single html page: the root page, upon which React bootstraps itself. The back end offers these routes as an API:
+
+```rb
+root to: "static_page#root"
+
+namespace :api, defaults: { format: :json } do
+  resource :session, only: [:create, :destroy]
+  resources :users, only: [:new, :create, :show]
+  resources :comments, only: [:destroy, :update]
+  resources :follows, only: [:destroy, :create]
+  resources :stories, except: [:new, :edit] do
+    resources :comments, only: [:index, :create]
+    resources :likes, only: [:destroy, :create]
+  end
+end
+```
+
+The React front end then uses "component_util.js" files to make AJAX requests to the back end API, with functions like this:
+
+```js
+export const delete_comment = commentId => $.ajax({
+  url: `/api/comments/${commentId}`,
+  method: 'delete'
+});
+
+export const create_comment = (storyId, comment) => $.ajax({
+  url: `/api/stories/${storyId}/comments`,
+  method: 'post',
+  data: { comment }
+});
+```
+
+These util files' functions are incorporated into the Redux cycle by using them to create thunk action creators. Components then dispatch these actions to perform tasks, such as creating or deleting comments. This all happens asynchronously without reloading the page, resulting in a fast SPA experience.
