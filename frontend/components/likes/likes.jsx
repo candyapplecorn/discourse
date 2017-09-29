@@ -5,8 +5,7 @@ class Likes extends React.Component {
     super(props)
     this.state = { ui: true }
   }
-  handleClick(e){
-    e.stopPropagation();
+  handleClick(){
     if (this.state.ui)
       this.props.action(
         this.props.likes.current_user_likes

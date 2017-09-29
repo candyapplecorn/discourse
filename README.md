@@ -53,3 +53,33 @@ Other components may react to changes caused by a ```FollowButton```. Below is a
 ![unFollow](wiki/assets/readme-media/unFollow2.gif)
 
 The ```FollowButton``` and ```StoryIndex``` components share a common slice of state in the Redux store. This allows changes originating from one component to affect others.
+
+The ```Like``` component also benefits from elevated state. ```StoryIndexItem``` components display comment and like counts, and _liking_ or _unliking_ a story affects these counts. Because the ```StoryIndexItem``` and ```Like``` component read from the same slice of state, toggling the ```Like``` component changes the counts in ```StoryIndexItem```:
+
+![like](wiki/assets/readme-media/like.gif)
+
+The ```Like``` component's container was simple enough:
+
+```js
+const mapStateToProps = ({ likes }) => ({
+  likes
+});
+
+const mapDispatchToProps = (dispatch, { match: { params: { id }}}) => ({
+  action: currentUserLikes => currentUserLikes ?
+            dispatch(deleteLike(id)) : dispatch(createLike(id))
+});
+```
+
+Handling clicks in the presentational component is succint too:
+
+```js
+handleClick(){
+  if (this.state.ui)
+    this.props.action(
+      this.props.likes.current_user_likes
+    ).then(() => this.setState({ ui: true }));
+
+  this.setState({ ui: false })
+}
+```
