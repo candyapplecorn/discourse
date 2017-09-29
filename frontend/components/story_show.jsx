@@ -45,8 +45,10 @@ class StoryShow extends React.Component {
   }
 
   transformImages(html){
-    const proxy = "https://images.weserv.nl/?url=";
-    return html.replace(/(.*?(https?)?:?.?.?(www)?\.?)([^\s]+?(png|jpg|jpeg|svg))/g, `<img src="${proxy}$4"></img>`)
+    // const proxy = "https://images.weserv.nl/?url=";
+    // return html.replace(/(.*?(https?)?:?.?.?(www)?\.?)([^\s]+?(png|jpg|jpeg|svg))/g, `<img src="${proxy}$4"></img>`)
+    return html.replace(/(http[^\s]+?(png|jpg|svg|jpeg))/g,
+    "<img src='$1'></img>")
   }
 
   buttonList(){
