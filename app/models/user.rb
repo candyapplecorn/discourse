@@ -67,7 +67,7 @@ class User < ApplicationRecord
     end
 
     def self.createTinyGraphURL(user)
-      "http://tinygraphs.com/labs/isogrids/hexa/#{user.username.html_safe}?theme=seascape&numcolors=4&size=40&fmt=svg"
+     "https://images.weserv.nl/?url=tinygraphs.com/labs/isogrids/hexa/#{user.username.html_safe}?theme=seascape&numcolors=4&size=40&fmt=svg"
     end
 
     def followee_stories

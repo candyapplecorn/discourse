@@ -119,6 +119,7 @@ a.author-detail-link {
 .story-show .user-icon {
   width: 80px;
   height: 80px;
+  object-fit: fill;
 }
 .wide {
   width: 100%;
@@ -189,4 +190,8 @@ a.author-detail-link {
   //   margin-top: 1em;
   //   border-bottom: none;
   // }
+}
+
+.user-icon {
+    object-fit: fill !important;
 }
