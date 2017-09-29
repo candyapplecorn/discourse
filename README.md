@@ -6,6 +6,12 @@ See the [wiki](https://github.com/candyapplecorn/discourse/wiki) for Write it Up
 
 ## Feature Highlights
 
+### _Responsive CSS_
+
+Write it Up uses CSS ```@media``` queries to adjust the look of the site based on screen width:
+
+![css](wiki/assets/readme-media/css.gif)
+
 ### _Demo Login Animation_
 
 ![followToggle](wiki/assets/readme-media/demoLogin.gif)
