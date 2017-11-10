@@ -1,7 +1,7 @@
 import React from 'react'
 import { merge } from 'lodash'
 import { Link } from 'react-router-dom'
-import ReactModal from 'react-modal';
+//import ReactModal from 'react-modal';
 
 class SessionForm extends React.Component {
   constructor(props){
